@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[React Diff算法]]></title>
+    <url>%2F2018%2F07%2F18%2FReact-Diff%2F</url>
+    <content type="text"><![CDATA[前言React 中最值得称道的部分莫过于 Virtual DOM 与 diff 的完美结合，特别是其高效的 diff 算法，让用户可以无需顾忌性能问题而”任性自由”的刷新页面，让开发者也可以无需关心 Virtual DOM 背后的运作原理，因为 React diff 会帮助我们计算出 Virtual DOM 中真正变化的部分，并只针对该部分进行实际 DOM 操作，而非重新渲染整个页面，从而保证了每次操作更新后页面的高效渲染，因此 Virtual DOM 与 diff 是保证 React 性能口碑的幕后推手 假设树中元素个数为n，最先进的算法 的时间复杂度为O(n3)React基于三点假设，实现了一个启发的O(n)算法 类型相同的节点总是生成同样的树，而类型不同的节点也总是生成不同的树 类型相同的兄弟节点可以被唯一标识 Web UI 中 DOM 节点跨层级的移动操作特别少，可以忽略不计 Diff算法tree diff两棵树只会对同一层次的节点进行比较 component diff 如果是同一类型的组件，按照原策略继续比较 virtual DOM tree 如果不是，则将该组件判断为 dirty component，从而替换整个组件下的所有子节点 对于同一类型的组件，有可能其 Virtual DOM 没有任何变化，如果能够确切的知道这点那可以节省大量的 diff 运算时间，因此 React 允许用户通过 shouldComponentUpdate() 来判断该组件是否需要进行 diff element diff当节点处于同一层级时，React diff 提供了三种节点操作，分别为：INSERT_MARKUP（插入）、MOVE_EXISTING（移动）和 REMOVE_NODE（删除）可以根据key值进行优化 总结 React 通过制定大胆的 diff 策略，将 O(n3) 复杂度的问题转换成 O(n) 复杂度的问题 React 通过分层求异的策略，对 tree diff 进行算法优化 React 通过相同类生成相似树形结构，不同类生成不同树形结构的策略，对 component diff 进行算法优化 React 通过设置唯一 key的策略，对 element diff 进行算法优化 建议，在开发组件时，保持稳定的 DOM 结构会有助于性能的提升 建议，在开发过程中，尽量减少类似将最后一个节点移动到列表首部的操作，当节点数量过大或更新操作过于频繁时，在一定程度上会影响 React 的渲染性能]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>diff</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[行存储和（HBase）列存储的区别]]></title>
     <url>%2F2018%2F07%2F11%2FRow-based-storage%2F</url>
     <content type="text"><![CDATA[原理 Row-based storage stores atable in a sequence of rows Column-based storage storesa table in a sequence of columns 优缺点行式存储下一张表的数据都是放在一起的，但列式存储下都被分开保存了。所以它们就有了如下这些优缺点： 列存储为什么快 减少了磁盘IO 随机读变成了连续读]]></content>
