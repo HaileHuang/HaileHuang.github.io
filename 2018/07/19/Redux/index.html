@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hbase," />
+  <meta name="keywords" content="Redux," />
 
 
 
@@ -79,21 +79,25 @@
 
 
 
-<meta name="description" content="原理 Row-based storage stores atable in a sequence of rows Column-based storage storesa table in a sequence of columns   优缺点行式存储下一张表的数据都是放在一起的，但列式存储下都被分开保存了。所以它们就有了如下这些优缺点：  列存储为什么快 减少了磁盘IO 随机读变成了连续读">
-<meta name="keywords" content="Hbase">
+<meta name="description" content="一个JS状态管理框架 不需要redux 用户的使用方式非常简单 用户之间没有协作 不需要与服务器大量交互，也没有使用 WebSocket 视图层（View）只从单一来源获取数据  需要redux 某个组件的状态，需要共享 某个状态需要在任何地方都可以拿到 一个组件需要改变全局状态 一个组件需要改变另一个组件的状态   特性Single Source of Truth 可预测性 纯函数更新 Stor">
+<meta name="keywords" content="Redux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="行存储和（HBase）列存储的区别">
-<meta property="og:url" content="http://yoursite.com/2018/07/11/Row-based-storage/index.html">
+<meta property="og:title" content="Redux">
+<meta property="og:url" content="http://yoursite.com/2018/07/19/Redux/index.html">
 <meta property="og:site_name" content="Haile&#39;s Blog">
-<meta property="og:description" content="原理 Row-based storage stores atable in a sequence of rows Column-based storage storesa table in a sequence of columns   优缺点行式存储下一张表的数据都是放在一起的，但列式存储下都被分开保存了。所以它们就有了如下这些优缺点：  列存储为什么快 减少了磁盘IO 随机读变成了连续读">
+<meta property="og:description" content="一个JS状态管理框架 不需要redux 用户的使用方式非常简单 用户之间没有协作 不需要与服务器大量交互，也没有使用 WebSocket 视图层（View）只从单一来源获取数据  需要redux 某个组件的状态，需要共享 某个状态需要在任何地方都可以拿到 一个组件需要改变全局状态 一个组件需要改变另一个组件的状态   特性Single Source of Truth 可预测性 纯函数更新 Stor">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://user-images.githubusercontent.com/10556018/42562887-773796c6-852f-11e8-8b8b-7e76c415b6cb.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/10556018/42563030-ca4003a8-852f-11e8-8b86-b34d478dd405.png">
-<meta property="og:updated_time" content="2018-07-11T15:09:01.000Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/10556018/42955134-0fdb5314-8bb0-11e8-8962-ded531982d8d.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/10556018/42955285-2514be28-8bb0-11e8-9966-fac241ee9e96.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/10556018/42955367-3089b72c-8bb0-11e8-906b-758fd8ee5bb6.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/10556018/42955459-3f5852cc-8bb0-11e8-9a6c-c61002dc8508.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/10556018/42955552-5209feac-8bb0-11e8-8c20-78b8cee8abc4.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/10556018/42955575-5fce7716-8bb0-11e8-9d95-7eeb32563493.png">
+<meta property="og:updated_time" content="2018-07-19T16:10:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="行存储和（HBase）列存储的区别">
-<meta name="twitter:description" content="原理 Row-based storage stores atable in a sequence of rows Column-based storage storesa table in a sequence of columns   优缺点行式存储下一张表的数据都是放在一起的，但列式存储下都被分开保存了。所以它们就有了如下这些优缺点：  列存储为什么快 减少了磁盘IO 随机读变成了连续读">
-<meta name="twitter:image" content="https://user-images.githubusercontent.com/10556018/42562887-773796c6-852f-11e8-8b8b-7e76c415b6cb.png">
+<meta name="twitter:title" content="Redux">
+<meta name="twitter:description" content="一个JS状态管理框架 不需要redux 用户的使用方式非常简单 用户之间没有协作 不需要与服务器大量交互，也没有使用 WebSocket 视图层（View）只从单一来源获取数据  需要redux 某个组件的状态，需要共享 某个状态需要在任何地方都可以拿到 一个组件需要改变全局状态 一个组件需要改变另一个组件的状态   特性Single Source of Truth 可预测性 纯函数更新 Stor">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/10556018/42955134-0fdb5314-8bb0-11e8-8962-ded531982d8d.png">
 
 
 
@@ -123,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/11/Row-based-storage/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/19/Redux/"/>
 
 
 
 
 
-  <title>行存储和（HBase）列存储的区别 | Haile's Blog</title>
+  <title>Redux | Haile's Blog</title>
   
 
 
@@ -300,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/Row-based-storage/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/19/Redux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Haile Huang">
@@ -317,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">行存储和（HBase）列存储的区别</h1>
+          <h1 class="post-title" itemprop="name headline">Redux</h1>
         
 
         <div class="post-meta">
@@ -329,8 +333,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-11T17:23:49+08:00">
-                2018-07-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-19T23:59:51+08:00">
+                2018-07-19
               </time>
             
 
@@ -352,8 +356,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Database/" itemprop="url" rel="index">
-                    <span itemprop="name">Database</span>
+                  <a href="/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
                   </a>
                 </span>
 
@@ -370,9 +374,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/07/11/Row-based-storage/#comments" itemprop="discussionUrl">
+                <a href="/2018/07/19/Redux/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/07/11/Row-based-storage/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/07/19/Redux/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -400,17 +404,49 @@
       
 
       
-        <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><ul>
-<li>Row-based storage stores atable in a sequence of rows</li>
-<li>Column-based storage storesa table in a sequence of columns</li>
+        <p>一个JS状态管理框架</p>
+<h3 id="不需要redux"><a href="#不需要redux" class="headerlink" title="不需要redux"></a>不需要redux</h3><ul>
+<li>用户的使用方式非常简单</li>
+<li>用户之间没有协作</li>
+<li>不需要与服务器大量交互，也没有使用 WebSocket</li>
+<li>视图层（View）只从单一来源获取数据</li>
 </ul>
-<p><img src="https://user-images.githubusercontent.com/10556018/42562887-773796c6-852f-11e8-8b8b-7e76c415b6cb.png" alt="Alt text"></p>
-<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>行式存储下一张表的数据都是放在一起的，但列式存储下都被分开保存了。所以它们就有了如下这些优缺点：</p>
-<p><img src="https://user-images.githubusercontent.com/10556018/42563030-ca4003a8-852f-11e8-8b86-b34d478dd405.png" alt="Alt text"></p>
-<h3 id="列存储为什么快"><a href="#列存储为什么快" class="headerlink" title="列存储为什么快"></a>列存储为什么快</h3><ul>
-<li>减少了磁盘IO</li>
-<li>随机读变成了连续读</li>
+<h3 id="需要redux"><a href="#需要redux" class="headerlink" title="需要redux"></a>需要redux</h3><ul>
+<li>某个组件的状态，需要共享</li>
+<li>某个状态需要在任何地方都可以拿到</li>
+<li>一个组件需要改变全局状态</li>
+<li>一个组件需要改变另一个组件的状态</li>
 </ul>
+<p><img src="https://user-images.githubusercontent.com/10556018/42955134-0fdb5314-8bb0-11e8-8962-ded531982d8d.png" alt="Alt text"></p>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><h4 id="Single-Source-of-Truth"><a href="#Single-Source-of-Truth" class="headerlink" title="Single Source of Truth"></a>Single Source of Truth</h4><p><img src="https://user-images.githubusercontent.com/10556018/42955285-2514be28-8bb0-11e8-9966-fac241ee9e96.png" alt="Alt text"></p>
+<h4 id="可预测性"><a href="#可预测性" class="headerlink" title="可预测性"></a>可预测性</h4><p><img src="https://user-images.githubusercontent.com/10556018/42955367-3089b72c-8bb0-11e8-906b-758fd8ee5bb6.png" alt="Alt text"></p>
+<h4 id="纯函数更新-Store"><a href="#纯函数更新-Store" class="headerlink" title="纯函数更新 Store"></a>纯函数更新 Store</h4><p>Reducer 函数最重要的特征是，它是一个纯函数。也就是说，只要是同样的输入，必定得到同样的输出。<br>纯函数是函数式编程的概念，必须遵守以下一些约束</p>
+<ul>
+<li>不得改写参数</li>
+<li>不能调用系统 I/O 的API</li>
+<li>不能调用Date.now()或者Math.random()等不纯的方法，因为每次会得到不一样的结果</li>
+</ul>
+<p>由于 Reducer 是纯函数，就可以保证同样的State，必定得到同样的 View。但也正因为这一点，Reducer 函数里面不能改变 State，必须返回一个全新的对象</p>
+<h3 id="Store"><a href="#Store" class="headerlink" title="Store"></a>Store</h3><p>Store 就是保存数据的地方，你可以把它看成一个容器。整个应用只能有一个 Store<br>Redux 提供<code>createStore</code>这个函数，用来生成 Store<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import &#123; createStore &#125; from &apos;redux&apos;;</span><br><span class="line">const store = createStore(Reducer);</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://user-images.githubusercontent.com/10556018/42955459-3f5852cc-8bb0-11e8-9a6c-c61002dc8508.png" alt="Alt text"></p>
+<h4 id="store-getState"><a href="#store-getState" class="headerlink" title="store.getState()"></a>store.getState()</h4><p>Store对象包含所有数据。如果想得到某个时点的数据，就要对 Store 生成快照。这种时点的数据集合，就叫做 State。<br>当前时刻的 State，可以通过<code>store.getState()</code>拿到</p>
+<h4 id="store-dispatch"><a href="#store-dispatch" class="headerlink" title="store.dispatch()"></a>store.dispatch()</h4><p><code>store.dispatch()</code>是 View 发出 Action 的唯一方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import &#123; createStore &#125; from &apos;redux&apos;;</span><br><span class="line">const store = createStore(fn);</span><br><span class="line"></span><br><span class="line">store.dispatch(&#123;</span><br><span class="line">  type: &apos;ADD_TODO&apos;,</span><br><span class="line">  payload: &apos;Learn Redux&apos;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，<code>store.dispatch</code>接受一个 <code>Action</code> 对象作为参数，将它发送出去<br>结合 <code>Action Creator</code>，这段代码可以改写如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">store.dispatch(addTodo(&apos;Learn Redux&apos;));</span><br></pre></td></tr></table></figure></p>
+<h4 id="store-subscribe"><a href="#store-subscribe" class="headerlink" title="store.subscribe()"></a>store.subscribe()</h4><p><code>Store</code> 允许使用<code>store.subscribe</code>方法设置监听函数，一旦 <code>State</code>发生变化，就自动执行这个函数<br>显然，只要把 <code>View</code> 的更新函数（对于 <code>React</code> 项目，就是组件的<code>render</code>方法或<code>setState</code>方法）放入listen，就会实现 <code>View</code> 的自动渲染</p>
+<h3 id="action"><a href="#action" class="headerlink" title="action"></a>action</h3><p>State 的变化，会导致 View 的变化。但是，用户接触不到 State，只能接触到 View。所以，State 的变化必须是 View 导致的。Action 就是 View 发出的通知，表示 State 应该要发生变化了<br>Action 是一个对象。其中的type属性是必须的，表示 Action 的名称。其他属性可以自由设置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const action = &#123;</span><br><span class="line">  type: &apos;ADD_TODO&apos;,</span><br><span class="line">  payload: &apos;Learn Redux&apos;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，Action 的名称是ADD_TODO，它携带的信息是字符串Learn Redux。<br>可以这样理解，Action 描述当前发生的事情。改变 State 的唯一办法，就是使用 Action。它会运送数据到 Store</p>
+<h3 id="reducer"><a href="#reducer" class="headerlink" title="reducer"></a>reducer</h3><p>Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer<br>Reducer 是一个函数，它接受 Action 和当前 State 作为参数，返回一个新的 State。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const reducer = function (state, action) &#123;</span><br><span class="line">  // ...</span><br><span class="line">  return new_state;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="bindActionCreators"><a href="#bindActionCreators" class="headerlink" title="bindActionCreators"></a>bindActionCreators</h3><p>就是将action和dispatch action 结合起来返回一个函数，这个函数实现了两个功能</p>
+<ol>
+<li>生成action</li>
+<li>dispatch这个action</li>
+</ol>
+<p><img src="https://user-images.githubusercontent.com/10556018/42955552-5209feac-8bb0-11e8-8c20-78b8cee8abc4.png" alt="Alt text"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="https://user-images.githubusercontent.com/10556018/42955575-5fce7716-8bb0-11e8-9d95-7eeb32563493.png" alt="Alt text"><br>首先，用户发出 Action<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">store.dispatch(action)</span><br></pre></td></tr></table></figure></p>
+<p>然后，Store 自动调用 Reducer，并且传入两个参数：当前 State 和收到的 Action。 Reducer 会返回新的 State<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let nextState = todoApp(previousState, action)</span><br></pre></td></tr></table></figure></p>
+<p>State 一旦有变化，Store 就会调用监听函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 设置监听函数</span><br><span class="line">store.subscribe(listener);</span><br></pre></td></tr></table></figure></p>
+<p>listener可以通过store.getState()得到当前状态。如果使用的是 React，这时可以触发重新渲染 View<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function listerner() &#123;</span><br><span class="line">  let newState = store.getState();</span><br><span class="line">  component.setState(newState);   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  createStore,</span><br><span class="line">  combineReducers,</span><br><span class="line">  bindActionCreators</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">"redux"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Store initial state</span></span><br><span class="line">  <span class="keyword">const</span> initialState = &#123; <span class="attr">count</span>: <span class="number">0</span> &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// reducer</span></span><br><span class="line">  <span class="keyword">const</span> counter = <span class="function">(<span class="params">state = initialState, action</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"PLUS_ONE"</span>:</span><br><span class="line">        <span class="keyword">return</span> &#123; <span class="attr">count</span>: state.count + <span class="number">1</span> &#125;;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"MINUS_ONE"</span>:</span><br><span class="line">        <span class="keyword">return</span> &#123; <span class="attr">count</span>: state.count - <span class="number">1</span> &#125;;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"CUSTOM_COUNT"</span>:</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">          count: state.count + action.payload.count</span><br><span class="line">        &#125;;</span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> state;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> todos = <span class="function">(<span class="params">state = &#123;&#125;</span>) =&gt;</span> state;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Create store</span></span><br><span class="line">  <span class="keyword">const</span> store = createStore(</span><br><span class="line">    combineReducers(&#123;</span><br><span class="line">      todos,</span><br><span class="line">      counter</span><br><span class="line">    &#125;)</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Action creator</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">plusOne</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// action</span></span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="attr">type</span>: <span class="string">"PLUS_ONE"</span> &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">minusOne</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="attr">type</span>: <span class="string">"MINUS_ONE"</span> &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">customCount</span>(<span class="params">count</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="attr">type</span>: <span class="string">"CUSTOM_COUNT"</span>, <span class="attr">payload</span>: &#123; count &#125; &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  plusOne = bindActionCreators(plusOne, store.dispatch);</span><br><span class="line"></span><br><span class="line">  store.subscribe(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(store.getState()));</span><br><span class="line">  <span class="comment">// store.dispatch(plusOne());</span></span><br><span class="line">  plusOne();</span><br><span class="line">  store.dispatch(minusOne());</span><br><span class="line">  store.dispatch(customCount(<span class="number">5</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> () =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;button onClick=&#123;run&#125;&gt;Run&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">    &lt;p&gt;* 请打开控制台查看运行结果&lt;/</span>p&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -428,7 +464,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hbase/" rel="tag"># Hbase</a>
+            <a href="/tags/Redux/" rel="tag"># Redux</a>
           
         </div>
       
@@ -441,8 +477,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/11/Huffman-Tree/" rel="next" title="Huffman-Tree">
-                <i class="fa fa-chevron-left"></i> Huffman-Tree
+              <a href="/2018/07/19/react-context/" rel="next" title="React-Context">
+                <i class="fa fa-chevron-left"></i> React-Context
               </a>
             
           </div>
@@ -450,10 +486,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/18/React-Diff/" rel="prev" title="React Diff算法">
-                React Diff算法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -615,7 +647,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">2.</span> <span class="nav-text">优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列存储为什么快"><span class="nav-number">3.</span> <span class="nav-text">列存储为什么快</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#不需要redux"><span class="nav-number">1.</span> <span class="nav-text">不需要redux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#需要redux"><span class="nav-number">2.</span> <span class="nav-text">需要redux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特性"><span class="nav-number">3.</span> <span class="nav-text">特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Single-Source-of-Truth"><span class="nav-number">3.1.</span> <span class="nav-text">Single Source of Truth</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可预测性"><span class="nav-number">3.2.</span> <span class="nav-text">可预测性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#纯函数更新-Store"><span class="nav-number">3.3.</span> <span class="nav-text">纯函数更新 Store</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Store"><span class="nav-number">4.</span> <span class="nav-text">Store</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#store-getState"><span class="nav-number">4.1.</span> <span class="nav-text">store.getState()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#store-dispatch"><span class="nav-number">4.2.</span> <span class="nav-text">store.dispatch()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#store-subscribe"><span class="nav-number">4.3.</span> <span class="nav-text">store.subscribe()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#action"><span class="nav-number">5.</span> <span class="nav-text">action</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reducer"><span class="nav-number">6.</span> <span class="nav-text">reducer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bindActionCreators"><span class="nav-number">7.</span> <span class="nav-text">bindActionCreators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example"><span class="nav-number">9.</span> <span class="nav-text">example</span></a></li></ol></div>
             
 
           </div>
@@ -779,9 +811,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/07/11/Row-based-storage/';
-          this.page.identifier = '2018/07/11/Row-based-storage/';
-          this.page.title = '行存储和（HBase）列存储的区别';
+          this.page.url = 'http://yoursite.com/2018/07/19/Redux/';
+          this.page.identifier = '2018/07/19/Redux/';
+          this.page.title = 'Redux';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://hailehuang.disqus.com/embed.js';
