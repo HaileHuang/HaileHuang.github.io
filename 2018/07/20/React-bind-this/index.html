@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="bind,this," />
 
 
 
@@ -79,13 +79,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Haile&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Context/index.html">
+<meta name="description" content="React.createClass 自动绑定React 中创建组件的方式已经很多，比较古老的诸如 React.createClass 应该很多人并不陌生。当然，从 React 0.13 开始，可以使用 ES6 Class 代替 React.createClass 了，这应该是今后推荐的方法。 但是需要知道，React.createClass 创建的组件，可以自动绑定 this。也就是说，this">
+<meta name="keywords" content="bind,this">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React多种方法绑定this">
+<meta property="og:url" content="http://yoursite.com/2018/07/20/React-bind-this/index.html">
 <meta property="og:site_name" content="Haile&#39;s Blog">
+<meta property="og:description" content="React.createClass 自动绑定React 中创建组件的方式已经很多，比较古老的诸如 React.createClass 应该很多人并不陌生。当然，从 React 0.13 开始，可以使用 ES6 Class 代替 React.createClass 了，这应该是今后推荐的方法。 但是需要知道，React.createClass 创建的组件，可以自动绑定 this。也就是说，this">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://user-images.githubusercontent.com/10556018/43006688-ed752534-8c68-11e8-8a71-c37e283fb562.png">
+<meta property="og:updated_time" content="2018-07-20T14:05:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Haile&#39;s Blog">
+<meta name="twitter:title" content="React多种方法绑定this">
+<meta name="twitter:description" content="React.createClass 自动绑定React 中创建组件的方式已经很多，比较古老的诸如 React.createClass 应该很多人并不陌生。当然，从 React 0.13 开始，可以使用 ES6 Class 代替 React.createClass 了，这应该是今后推荐的方法。 但是需要知道，React.createClass 创建的组件，可以自动绑定 this。也就是说，this">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/10556018/43006688-ed752534-8c68-11e8-8a71-c37e283fb562.png">
 
 
 
@@ -115,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Context/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/20/React-bind-this/"/>
 
 
 
 
 
-  <title>Tag: Context | Haile's Blog</title>
+  <title>React多种方法绑定this | Haile's Blog</title>
   
 
 
@@ -140,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -278,54 +285,193 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Context<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/20/React-bind-this/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Haile Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/10556018/42558701-ab98e452-8524-11e8-8545-17971d41dcbf.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Haile's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/07/19/react-context/" itemprop="url">
-              
-                <span itemprop="name">React-Context</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">React多种方法绑定this</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-19T16:50:04+08:00"
-              content="2018-07-19" >
-          07-19
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-20T22:01:27+08:00">
+                2018-07-20
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/20/React-bind-this/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/20/React-bind-this/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="React-createClass-自动绑定"><a href="#React-createClass-自动绑定" class="headerlink" title="React.createClass 自动绑定"></a>React.createClass 自动绑定</h3><p>React 中创建组件的方式已经很多，比较古老的诸如 React.createClass 应该很多人并不陌生。当然，从 React 0.13 开始，可以使用 ES6 Class 代替 React.createClass 了，这应该是今后推荐的方法。 但是需要知道，React.createClass 创建的组件，可以自动绑定 this。也就是说，this 这个关键字会自动绑定在组件实例上面<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// This magically works with React.createClass</span></span><br><span class="line"><span class="comment">// because `this` is bound for you.</span></span><br><span class="line">onChange = &#123;<span class="keyword">this</span>.handleChange&#125;</span><br></pre></td></tr></table></figure><br>当然很遗憾，对于组件的创建，官方已经推荐使用 class 声明组件或使用 functional 无状态组件：</p>
+<blockquote>
+<p>Later, classes were added to the language as part of ES2015, so we added the ability to create React components using JavaScript classes. Along with functional components, JavaScript classes are now the preferred way to create components in React. For your existing createClass components, we recommend that you migrate them to JavaScript classes.</p>
+</blockquote>
+<p>我认为，这其实是 React 框架本身的自我完善和对未来的迎合，是框架和语言发展的大势所趋</p>
+<h3 id="渲染时绑定"><a href="#渲染时绑定" class="headerlink" title="渲染时绑定"></a>渲染时绑定</h3><p>通过前文，我们知道最传统的组件创建方式不会有 this 绑定的困扰。接下来，我们假定所有的组件都采取 ES6 classes 方式声明。这种情况下，this 无法自动绑定。一个常见的解决方案便是<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onChange = &#123;<span class="keyword">this</span>.handleChange.bind(<span class="keyword">this</span>)&#125;</span><br></pre></td></tr></table></figure><br>这种方法简明扼要，但是有一个潜在的性能问题：当组件每次重新渲染时，都会有一个新的函数创建。OMG! 这听上去貌似是一个很大的问题，但是其实在真正的开发场景中，由此引发的性能问题往往不值一提（除非是大型组件消费类应用或游戏）</p>
+<h3 id="箭头函数绑定"><a href="#箭头函数绑定" class="headerlink" title="箭头函数绑定"></a>箭头函数绑定</h3><p>这种方法其实和第二种类似，拜 ES6 箭头函数所赐，我们可以隐式绑定 this：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onChange = &#123;e =&gt; <span class="keyword">this</span>.handleChange(e)&#125;</span><br></pre></td></tr></table></figure><br>当然，也与第二种方法一样，它同样存在潜在的性能问题。下面将要介绍的两种方法，可以有效规避不必要的性能消耗，请继续阅读。</p>
+<h3 id="Constructor-内绑定"><a href="#Constructor-内绑定" class="headerlink" title="Constructor 内绑定"></a>Constructor 内绑定</h3><p>constructor 方法是类的默认方法，通过new命令生成对象实例时，自动调用该方法。 所以我们可以<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">  <span class="keyword">super</span>(props);</span><br><span class="line">  <span class="keyword">this</span>.handleChange = <span class="keyword">this</span>.handleChange.bind(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>这种方式往往被推荐为“最佳实践”，也是笔者最为常用的方法。 但是就个人习惯而言，我认为与前两种方法相比，constructor 内绑定在可读性和可维护性上也许有些欠缺。 同时，我们知道在 constructor 声明的方法不会存在实例的原型上，而属于实例本身的方法。每个实例都有同样一个 handleChange，这本身也是一种重复和浪费。</p>
+<h3 id="Class-属性中使用-和箭头函数"><a href="#Class-属性中使用-和箭头函数" class="headerlink" title="Class 属性中使用 = 和箭头函数"></a>Class 属性中使用 = 和箭头函数</h3><p>这个方法依赖于 ES next 的新特性<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">handleChange = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// call this function from render </span></span><br><span class="line">  <span class="comment">// and this.whatever in here works fine.</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="小总结"><a href="#小总结" class="headerlink" title="小总结"></a>小总结</h3><p>本文在对比 React 绑定 this 的五种方法的同时，也由远及近了解了 javascript 语言的发展：从 ES5 的 bind， 到 ES6 的箭头函数，再到 ES next 对 class 的改进。 React 作为蓬勃发展的框架也同样在与时具进，不断完善，结合语言特性的发展不断调整着自身。 最后，我们通过这张图片来完整回顾<br><img src="https://user-images.githubusercontent.com/10556018/43006688-ed752534-8c68-11e8-8a71-c37e283fb562.png" alt="Alt text"></p>
+<h4 id="牛逼做法"><a href="#牛逼做法" class="headerlink" title="牛逼做法"></a>牛逼做法</h4><p>下面代码是我前同事杨峥的骚操作，构造了一个BaseComponent的类，里面的bindMethods方法会将这个类里面所有以 _ 开头的方法给自动绑定this，其他组件直接继承这个BaseComponent就可以自动绑定了<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.state = <span class="keyword">this</span>.getInitState();</span><br><span class="line">    <span class="keyword">this</span>.bindMethods();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  getInitState() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  bindMethods() &#123;</span><br><span class="line">    <span class="comment">// only method startwith only one _ will be mounted</span></span><br><span class="line">    <span class="keyword">let</span> props = [];</span><br><span class="line">    <span class="keyword">let</span> obj = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> l = <span class="built_in">Object</span>.getOwnPropertyNames(obj)</span><br><span class="line">        .concat(<span class="built_in">Object</span>.getOwnPropertySymbols(obj).map(<span class="function"><span class="params">s</span> =&gt;</span> s.toString()))</span><br><span class="line">        .sort()</span><br><span class="line">        .filter(<span class="function">(<span class="params">p, i, arr</span>) =&gt;</span></span><br><span class="line">          p[<span class="number">0</span>] === <span class="string">'_'</span> &amp;&amp; p[<span class="number">1</span>] !== <span class="string">'_'</span> &amp;&amp;</span><br><span class="line">          <span class="keyword">typeof</span> obj[p] === <span class="string">'function'</span> &amp;&amp;</span><br><span class="line">          p !== <span class="string">'constructor'</span> &amp;&amp;</span><br><span class="line">          props.indexOf(p) === <span class="number">-1</span></span><br><span class="line">        );</span><br><span class="line">      props = props.concat(l)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (</span><br><span class="line">      (obj = <span class="built_in">Object</span>.getPrototypeOf(obj)) &amp;&amp;   <span class="comment">//walk-up the prototype chain</span></span><br><span class="line">      <span class="built_in">Object</span>.getPrototypeOf(obj)              <span class="comment">//not the the Object prototype methods (hasOwnProperty, etc...)</span></span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> prop <span class="keyword">of</span> props) &#123;</span><br><span class="line">      <span class="keyword">this</span>[prop] = <span class="keyword">this</span>[prop].bind(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>每每想起骚哥，那种对代码的追求和那股较真的劲儿，让我深刻的认识到一个泥水匠和一个艺术家的区别<br>PS：他们初次review我代码被打回去了10+次</p>
+<h3 id="Passing-Arguments-to-Event-Handlers"><a href="#Passing-Arguments-to-Event-Handlers" class="headerlink" title="Passing Arguments to Event Handlers"></a>Passing Arguments to Event Handlers</h3><p>Inside a loop it is common to want to pass an extra parameter to an event handler. For example, if id is the row ID, either of the following would work<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onClick=&#123;(e) =&gt; <span class="keyword">this</span>.deleteRow(id, e)&#125;&gt;Delete Row&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">&lt;button onClick=&#123;this.deleteRow.bind(this, id)&#125;&gt;Delete Row&lt;/</span>button&gt;</span><br></pre></td></tr></table></figure><br>The above two lines are equivalent, and use arrow functions and Function.prototype.bind respectively<br>In both cases, the <code>e</code> argument representing the React event will be passed as a second argument after the ID. With an arrow function, we have to pass it explicitly, but with bind any further arguments are automatically forwarded.</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/bind/" rel="tag"># bind</a>
+          
+            <a href="/tags/this/" rel="tag"># this</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/20/BFC/" rel="next" title="BFC（Block Formatting Context）">
+                <i class="fa fa-chevron-left"></i> BFC（Block Formatting Context）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -333,6 +479,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -353,8 +513,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -434,6 +603,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#React-createClass-自动绑定"><span class="nav-number">1.</span> <span class="nav-text">React.createClass 自动绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渲染时绑定"><span class="nav-number">2.</span> <span class="nav-text">渲染时绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#箭头函数绑定"><span class="nav-number">3.</span> <span class="nav-text">箭头函数绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Constructor-内绑定"><span class="nav-number">4.</span> <span class="nav-text">Constructor 内绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class-属性中使用-和箭头函数"><span class="nav-number">5.</span> <span class="nav-text">Class 属性中使用 = 和箭头函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小总结"><span class="nav-number">6.</span> <span class="nav-text">小总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#牛逼做法"><span class="nav-number">6.1.</span> <span class="nav-text">牛逼做法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Passing-Arguments-to-Event-Handlers"><span class="nav-number">7.</span> <span class="nav-text">Passing Arguments to Event Handlers</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -568,6 +753,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -585,6 +774,18 @@
       <script id="dsq-count-scr" src="https://hailehuang.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/07/20/React-bind-this/';
+          this.page.identifier = '2018/07/20/React-bind-this/';
+          this.page.title = 'React多种方法绑定this';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://hailehuang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
