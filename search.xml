@@ -1,6 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[将CSS文件放在顶部，将Scripts放在底部]]></title>
+    <url>%2F2018%2F07%2F23%2Fperformance-css-script%2F</url>
+    <content type="text"><![CDATA[将CSS文件放在顶部简介在web页面设计中，一般在HTML中不直接写样式，而是通过link标签引用一个CSS文件在下载页面过程中，document最早开始下载，然后浏览器解析document，下载相关的css、js、图片、字体、视频等资源css文件放置在head中和放在body底部，对css的下载时间不会有影响，但是对页面的呈现有着非常大的影响，与用户的体验密切相关 CSS文件放置在顶部的原理CSS文件放在顶部一方面是因为放置顺序决定了下载的优先级，更关键的是浏览器的渲染机制最理想的情况，我们希望浏览器逐渐的渲染下载好的CSS，将页面逐渐的展现给用户。但是浏览器为了避免样式变化时重新渲染绘制页面元素，会阻塞内容逐步呈现，浏览器等待所有样式加载完成之后才一次性渲染呈现页面如此，CSS文件如果放置底部，浏览器阻止内容逐步呈现，浏览器在等待最后一个CSS文件下载完成的过程中，就出现了“白屏”（新打开连接时为白屏，尔后先出现文字，图片，样式最后出现）这点非常严重，因为在网速非常慢的情况下，css下载时间比较长，这样就给用户带来“白屏”的时间自然也就很长了，用户体验非常差 将Scripts放在底部原因由于下载script会阻塞并行下载，也就是下载script就下载不了其他的资源所以通常将script放到底部 defer 属性 和 async属性 async是异步执行，表示下载完js马上异步执行js defer表示延迟执行，需要等页面资源下载完成后执行 通常还可以再加上一个defer属性]]></content>
+      <categories>
+        <category>performance</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[浏览器中的Event loop]]></title>
+    <url>%2F2018%2F07%2F23%2Fbrowser-event-loop%2F</url>
+    <content type="text"><![CDATA[众所周知 JS 是门非阻塞单线程语言，因为在最初 JS 就是为了和浏览器交互而诞生的。如果 JS 是门多线程的语言话，我们在多个线程中处理 DOM 就可能会发生问题（一个线程中新加节点，另一个线程中删除节点），当然可以引入读写锁解决这个问题 执行过程JS 在执行的过程中会产生执行环境，这些执行环境会被顺序的加入到执行栈中。如果遇到异步的代码，会被挂起并加入到 Task（有多种 task） 队列中。一旦执行栈为空，Event Loop 就会从 Task 队列中拿出需要执行的代码并放入执行栈中执行，所以本质上来说 JS 中的异步还是同步行为1234567console.log('script start');setTimeout(function() &#123; console.log('setTimeout');&#125;, 0);console.log('script end');以上代码虽然 setTimeout 延时为 0，其实还是异步。这是因为 HTML5 标准规定这个函数第二个参数不得小于 4 毫秒，不足会自动增加。所以 setTimeout还是会在 script end 之后打印。 微任务（microtask） 和 宏任务（macrotask）不同的任务源会被分配到不同的 Task 队列中，任务源可以分为 微任务（microtask） 和 宏任务（macrotask）。在 ES6 规范中，microtask 称为 jobs，macrotask 称为 task1234567891011121314151617console.log('script start');setTimeout(function() &#123; console.log('setTimeout');&#125;, 0);new Promise((resolve) =&gt; &#123; console.log('Promise') resolve()&#125;).then(function() &#123; console.log('promise1');&#125;).then(function() &#123; console.log('promise2');&#125;);console.log('script end');// script start =&gt; Promise =&gt; script end =&gt; promise1 =&gt; promise2 =&gt; setTimeout以上代码虽然 setTimeout 写在 Promise 之前，但是因为 Promise 属于微任务而 setTimeout 属于宏任务，所以会有以上的打印。 微任务包括：process.nextTick ，promise ，Object.observe ，MutationObserver 宏任务包括：script ， setTimeout ，setInterval ，setImmediate ，I/O ，UI rendering 很多人有个误区，认为微任务快于宏任务，其实是错误的。因为宏任务中包括了 script ，浏览器会先执行一个宏任务，接下来有异步代码的话就先执行微任务 总结正确的一次 Event loop 顺序是这样的： 执行同步代码，这属于宏任务 执行栈为空，查询是否有微任务需要执行 执行所有微任务 必要的话渲染 UI 然后开始下一轮 Event loop，执行宏任务中的异步代码 通过上述的 Event loop 顺序可知，如果宏任务中的异步代码有大量的计算并且需要操作 DOM 的话，为了更快的 界面响应，我们可以把操作 DOM 放入微任务中]]></content>
+      <categories>
+        <category>browser</category>
+      </categories>
+      <tags>
+        <tag>Event loop</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[浏览器中的Cookie]]></title>
+    <url>%2F2018%2F07%2F23%2Fbrowser-cookie%2F</url>
+    <content type="text"><![CDATA[cookie 路径cookie 一般都是由于用户访问页面而被创建的，可是并不是只有在创建 cookie 的页面才可以访问这个 cookie默认情况下，只有与创建 cookie 的页面在同一个目录或子目录下的网页才可以访问，这个是因为安全方面的考虑所以不是所有页面都可以随意访问其他页面创建的 cookie example在 “http://www.cnblogs.com/Darren_code/&quot; 这个页面创建一个cookie在”http://www.cnblogs.com/Darren_code/archive/2011/11/07/Cookie.html&quot;这个页面默认就能取到cookie信息可在默认情况下， “http://www.cnblogs.com&quot;或者 “http://www.cnblogs.com/xxxx/&quot; 就不可以访问这个 cookie那么如何让这个 cookie 能被其他目录或者父级的目录访问类，通过设置 cookie 的路径就可以实现12document.cookie = "name=value;path=path"document.cookie = "name=value;expires=date;path=path"最常用的例子就是让 cookie 在根目录下,这样不管是哪个子页面创建的 cookie，所有的页面都可以访问到了:1document.cookie = "name=Darren;path=/" cookie 域路径能解决在同一个域下访问 cookie 的问题，咱们接着说 cookie 实现同域之间访问的问题例如 “www.qq.com&quot; 与 “sports.qq.com” 公用一个关联的域名”qq.com”，我们如果想让 “sports.qq.com” 下的cookie被 “www.qq.com&quot; 访问，我们就需要用到 cookie 的domain属性，并且需要把path属性设置为 “/“1document.cookie = "username=Darren;path=/;domain=qq.com" 发请求带上 cookie以下两个条件缺一不可 Request 需设置 withCredentials 为 true1234567891011var invocation = new XMLHttpRequest();var url = 'http://bar.other/resources/credentialed-content/'; function callOtherDomain()&#123; if(invocation) &#123; invocation.open('GET', url, true); invocation.withCredentials = true; invocation.onreadystatechange = handler; invocation.send(); &#125;&#125; Response 需设置 Access-Control-Allow-Credentials 为 true123456789101112131415HTTP/1.1 200 OKDate: Mon, 01 Dec 2008 01:34:52 GMTServer: Apache/2.0.61 (Unix) PHP/4.4.7 mod_ssl/2.0.61 OpenSSL/0.9.7e mod_fastcgi/2.4.2 DAV/2 SVN/1.4.2X-Powered-By: PHP/5.2.6Access-Control-Allow-Origin: http://foo.exampleAccess-Control-Allow-Credentials: trueCache-Control: no-cachePragma: no-cacheSet-Cookie: pageAccess=3; expires=Wed, 31-Dec-2008 01:34:53 GMTVary: Accept-Encoding, OriginContent-Encoding: gzipContent-Length: 106Keep-Alive: timeout=2, max=100Connection: Keep-AliveContent-Type: text/plain 其他注意 如果设置Access-Control-Allow-Origin为*，请求将不会带上cookie 请设置好http-only，这样浏览器端就不能通过 JS 访问 Cookie，减少 XSS 攻击 属性 作用 value 如果用于保存用户登录态，应该将该值加密，不能使用明文的用户标识 http-only 不能通过 JS 访问 Cookie，减少 XSS 攻击 secure 只能在协议为 HTTPS 的请求中携带 same-site 规定浏览器不能在跨域请求中携带 Cookie，减少 CSRF 攻击]]></content>
+      <categories>
+        <category>browser</category>
+      </categories>
+      <tags>
+        <tag>cookie</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[浏览器跨域]]></title>
+    <url>%2F2018%2F07%2F23%2Fbrowser-CORS%2F</url>
+    <content type="text"><![CDATA[因为浏览器出于安全考虑，有同源策略。也就是说，如果协议、域名或者端口有一个不同就是跨域，Ajax 请求会失败。我们可以通过以下几种常用方法解决跨域的问题 JSONPJSONP 的原理很简单，就是利用 &lt;script&gt; 标签没有跨域限制的漏洞通过 &lt;script&gt;标签指向一个需要访问的地址并提供一个回调函数来接收数据当需要通讯时123456&lt;script src="http://domain/api?param1=a&amp;param2=b&amp;callback=jsonp"&gt;&lt;/script&gt;&lt;script&gt; function jsonp(data) &#123; console.log(data) &#125;&lt;/script&gt;JSONP 使用简单且兼容性不错，但是只限于 get 请求。在开发中可能会遇到多个 JSONP 请求的回调函数名是相同的，这时候就需要自己封装一个 JSONP，以下是简单实现1234567891011121314151617function jsonp(url, jsonpCallback, success) &#123; let script = document.createElement("script"); script.src = url; script.async = true; script.type = "text/javascript"; window[jsonpCallback] = function(data) &#123; success &amp; success(data); &#125;; document.body.appendChild(script);&#125;jsonp( "http://xxx", "callback", function(value) &#123; console.log(value); &#125;); HTTP访问控制（CORS）MDNCORS需要浏览器和后端同时支持浏览器会自动进行 CORS 通信，实现CORS通信的关键是后端。只要后端实现了 CORS，就实现了跨域。服务端设置 Access-Control-Allow-Origin 就可以开启 CORS。 该属性表示哪些域名可以访问资源，如果设置通配符则表示所有网站都可以访问资源。 预检请求(Preflighted requests CORS)client通过options请求 知道server接受哪些method、header等，来判断真正要发出的请求是否是可接受的 触发条件当请求满足下述任一条件时，即应首先发送预检请求: 使用了下面任一HTTP方法： PUT DELETE CONNECT OPTIONS TRACE PATCH 人为设置了对 CORS 安全的首部字段集合之外的其他首部字段。该集合为 Accept Accept-Language Content-Language Content-Type (but note the additional requirements below) DPR Downlink Save-Data Viewport-Width Width Content-Type 的值不属于下列之一: application/x-www-form-urlencoded multipart/form-data text/plain example Server side code1234567891011app.all('*', function (req, res, next) &#123; // handle all request contain Preflight request and set CORS header res.header('Access-Control-Allow-Origin', req.headers.origin); res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS'); res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Origin, X-Requested-With, Accept'); res.header('Access-Control-Allow-Credentials', true); if (req.method === "OPTIONS") &#123;. // handle Preflight request and send res with 200 return res.sendStatus(200); &#125; else &#123; next() // pass control to the next handler &#125;&#125;); CORS规则Request with credential1Origin: http://foo.example Response123Access-Control-Allow-Origin: http://foo.exampleAccess-Control-Allow-Method: POST, GET, OPTIONSAccess-Control-Allow-Credentials: true]]></content>
+      <categories>
+        <category>browser</category>
+      </categories>
+      <tags>
+        <tag>CORS</tag>
+        <tag>JSONP</tag>
+        <tag>OPTIONS</tag>
+        <tag>Origin</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[浏览器事件机制]]></title>
+    <url>%2F2018%2F07%2F23%2FJS-event%2F</url>
+    <content type="text"><![CDATA[事件触发三阶段 document往事件触发处传播，遇到注册的捕获事件会触发 传播到事件触发处时触发注册的事件 从事件触发处往 document 传播，遇到注册的冒泡事件会触发 事件触发一般来说会按照上面的顺序进行，但是也有特例，如果给一个目标节点同时注册冒泡和捕获事件，事件触发会按照注册的顺序执行1234567// 以下会先打印冒泡然后是捕获node.addEventListener('click',(event) =&gt;&#123; console.log('冒泡')&#125;,false);node.addEventListener('click',(event) =&gt;&#123; console.log('捕获 ')&#125;,true) 注册事件通常我们使用 addEventListener 注册事件，该函数的第三个参数可以是布尔值，也可以是对象。对于布尔值 useCapture 参数来说，该参数默认值为 false 。useCapture 决定了注册的事件是捕获事件还是冒泡事件。对于对象参数来说，可以使用以下几个属性: capture，布尔值，和 useCapture 作用一样 once，布尔值，值为 true 表示该回调只会调用一次，调用后会移除监听 passive，布尔值，表示永远不会调用 preventDefault 阻止冒泡 event.stopPropagation(): 事件处理过程中，阻止了事件冒泡，但不会阻击默认行为 return false: 事件处理过程中，阻止了事件冒泡，也阻止了默认行为 event.preventDefault() 阻止了默认行为，但不阻止冒泡 事件代理如果一个节点中的子节点是动态生成的，那么子节点需要注册事件的话应该注册在父节点上12345678910111213&lt;ul id="ul"&gt; &lt;li&gt;1&lt;/li&gt; &lt;li&gt;2&lt;/li&gt; &lt;li&gt;3&lt;/li&gt; &lt;li&gt;4&lt;/li&gt; &lt;li&gt;5&lt;/li&gt;&lt;/ul&gt;&lt;script&gt; let ul = document.querySelector('##ul') ul.addEventListener('click', (event) =&gt; &#123; console.log(event.target); &#125;)&lt;/script&gt;事件代理的方式相对于直接给目标注册事件来说，有以下优点: 节省内存 不需要给子节点注销事件]]></content>
+      <categories>
+        <category>browser</category>
+      </categories>
+      <tags>
+        <tag>event</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ES6 模块与 CommonJS 模块的差异]]></title>
+    <url>%2F2018%2F07%2F23%2FJS-module%2F</url>
+    <content type="text"><![CDATA[CommonJS模块输出的是一个值的拷贝，ES6 模块输出的是值的引用 CommonJS模块是运行时加载，ES6 模块是编译时输出接口 ES6在有 Babel 的情况下，我们可以直接使用 ES6 的模块化12345678export var firstName = ‘Michael’ === var firstName = 'Michael’; export &#123;firstName&#125;;export function v1() &#123; &#125;; === function v1() &#123; &#125;; export &#123;v1&#125;;import &#123;firstName, lastName, year&#125; from './profile’;import * as circle from './circle’;export default function () &#123; console.log('foo'); &#125;import customName from './export-default’; CommonJSCommonJs 是 Node 独有的规范，浏览器中使用就需要用到Browserify解析了。 每个模块内部，module变量代表当前模块。 这个变量是一个对象，它的exports属性（即module.exports）是对外的接口。加载某个模块，其实是加载该模块的module.exports`属性。1234567891011var x = 5;var addX = function (value) &#123; return value + x;&#125;;module.exports.x = x;module.exports.addX = addX;var example = require('./example.js');console.log(example.x); // 5console.log(example.addX(1)); // 6]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>ES6</tag>
+        <tag>CommonJS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JS closure]]></title>
+    <url>%2F2018%2F07%2F23%2FJS-closure%2F</url>
+    <content type="text"><![CDATA[定义在作用域链上的对象访问只能向上，内部作用域能够访问外部作用域的变量，但是外部却无法向内部访问所以在JS中，实现外部作用域 访问 内部作用域中变量的方法叫做闭包，这得益于高阶函数的特性：函数可以作为参数或者返回值12345678function A() &#123; let a = 1 function B() &#123; console.log(a) &#125; return B&#125;A()() // 1 经典面试题12345for ( var i=1; i&lt;=5; i++) &#123; setTimeout( function timer() &#123; console.log( i ); &#125;, i*1000 );&#125; 首先因为 setTimeout 是个异步函数，所有会先把循环全部执行完毕，这时候 i 就是 6 了，所以会输出一堆 6使用闭包解决1234567for (var i = 1; i &lt;= 5; i++) &#123; (function(j) &#123; setTimeout(function timer() &#123; console.log(j); &#125;, j * 1000); &#125;)(i);&#125;]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>closure</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JS this]]></title>
+    <url>%2F2018%2F07%2F23%2FJS-this%2F</url>
+    <content type="text"><![CDATA[JS（ES5）里面有三种函数调用形式 func(p1, p2) obj.child.method(p1, p2) func.call(context, p1, p2) 一般，初学者都知道前两种形式，而且认为前两种形式「优于」第三种形式但是，第三种调用形式，才是正常调用形式1func.call(context, p1, p2) 其他两种都是语法糖，可以等价地变为 call 形式12345func(p1, p2) 等价于func.call(undefined, p1, p2)obj.child.method(p1, p2) 等价于obj.child.method.call(obj.child, p1, p2) 至此我们的函数调用只有一种形式：1func.call(context, p1, p2) this是什么this，就是上面代码中的 contextthis 是你 call 一个函数时传的 context，由于你从来不用 call 形式的函数调用，所以你一直不知道 普通函数中的this: this总是代表它的直接调用者, 例如 obj.func ,那么func中的this就是obj 在默认情况(非严格模式下,未使用 ‘use strict’),没找到直接调用者,则this指的是 window 在严格模式下,没有直接调用者的函数中的this是 undefined 使用call,apply,bind(ES5新增)绑定的,this指的是 绑定的对象 箭头函数中的this默认指向在定义它时,它所处的对象,而不是执行时的对象, 定义它的时候,可能环境是window12345678function a() &#123; return () =&gt; &#123; return () =&gt; &#123; console.log(this) &#125; &#125;&#125;console.log(a()()()) //window箭头函数其实是没有 this 的，这个函数中的 this 只取决于他外面的第一个不是箭头函数的函数的 this。在这个例子中，因为调用 a 符合前面代码中的第一个情况，所以 this 是 window。并且 this 一旦绑定了上下文，就不会被任何代码改变]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>this</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JS 原型]]></title>
+    <url>%2F2018%2F07%2F23%2Fjs-prototype%2F</url>
+    <content type="text"><![CDATA[prototype这是一个显式原型属性，只有函数才拥有该属性prototype 一般可读可写 prototype 如何产生的当我们声明一个函数时，这个属性就被自动创建了1function Foo() &#123;&#125; 并且这个属性的值是一个对象（也就是原型），只有一个属性 constructorconstructor 对应着构造函数，也就是 Foo1Foo.prototype.constructor === Foo //true constructorconstructor是一个公有且不可枚举的属性。一旦我们改变了函数的 prototype ，那么新对象就没有这个属性了（当然可以通过原型链取到 constructor）那么你肯定也有一个疑问，这个属性到底有什么用呢？其实这个属性可以说是一个历史遗留问题，在大部分情况下是没用的，在我的理解里，我认为他有两个作用： 让实例对象知道是什么函数构造了它(obj.__proto__.constructor) 如果想给某些类库中的构造函数增加一些自定义的方法，就可以通过 xx.constructor.method 来扩展 __proto__这是每个对象都有的隐式原型属性，指向了创建该对象的构造函数的原型。其实这个属性指向了 [[prototype]]，但是 [[prototype]] 是内部属性，我们并不能访问到，所以使用 __proto__ 来访问。一般只读因为在 JS 中是没有类的概念的，为了实现类似继承的方式，通过 __proto__将对象和原型联系起来组成原型链，得以让对象可以访问到不属于自己的属性。 实例对象的 __proto__ 如何产生的当我们使用 new 操作符时，生成的实例对象拥有了 __proto__属性。 new 的过程 新生成了一个对象 链接到原型 绑定 this 返回新对象 在调用 new 的过程中会发生以上四件事情，我们也可以试着来自己实现一个 new123456789101112function create() &#123; // 创建一个空的对象 let obj = new Object() // 获得构造函数 let Con = [].shift.call(arguments) // 链接到原型 obj.__proto__ = Con.prototype // 绑定 this，执行构造函数 let result = Con.apply(obj, arguments) // 确保 new 出来的是个对象 return typeof result === 'object' ? result : obj&#125; 判断 一个 对象a是不是类b的实例a.__proto__ === b.prototype Function.__proto__ === Function.prototype 对于对象来说，xx.__proto__.contrcutor 是该对象的构造函数，但是在图中我们可以发现 Function.__proto__ === Function.prototype，难道这代表着 Function 自己产生了自己?答案肯定是否认的，要说明这个问题我们先从 Object 说起。从图中我们可以发现，所有对象都可以通过原型链最终找到 Object.prototype ，虽然 Object.prototype 也是一个对象，但是这个对象却不是 Object 创造的，而是引擎自己创建了 Object.prototype 。所以可以这样说，所有实例都是对象，但是对象不一定都是实例接下来我们来看 Function.prototype 这个特殊的对象，如果你在浏览器将这个对象打印出来，会发现这个对象其实是一个函数。这个函数也是引擎自己创建的。首先引擎创建了 Object.prototype ，然后创建了 Function.prototype ，并且通过__proto__ 将两者联系了起来现在可以来解释 Function.__proto__ === Function.prototype 这个问题了。因为先有的 Function.prototype 以后才有的 function Function() ，所以也就不存在鸡生蛋蛋生鸡的悖论问题了。对于为什么 Function.__proto__ 会等于 Function.prototype ，个人的理解是：其他所有的构造函数都可以通过原型链找到 Function.prototype ，并且 function Function() 本质也是一个函数，为了不产生混乱就将 function Function() 的 __proto__联系到了 Function.prototype 上。 总结 Object 是所有对象的爸爸，所有对象都可以通过__proto__ 找到它 Function 是所有函数的爸爸，所有函数都可以通过 __proto__ 找到它 Function.prototype 和 Object.prototype 是两个特殊的对象，他们由引擎来创建 除了以上两个特殊对象，其他对象都是通过构造器 new 出来的 函数的 prototype 是一个对象，也就是原型 对象的 __proto__ 指向构造函数的原型， __proto__ 将对象和构造函数的原型连接起来组成了原型链]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>prototype</tag>
+        <tag>__proto__</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[为什么scripts, styles, and images不遵循Same-Origin Policy]]></title>
+    <url>%2F2018%2F07%2F23%2Ftags-SOP%2F</url>
+    <content type="text"><![CDATA[GET 请求没有副作用并且页面不能直接读取结果 Sending a GET request (even with cookies) is not harmful; GET requests are not supposed to have any side-effects.None of these tags allow the calling page to (directly) read responses, so they don’t leak information.Therefore, there is (almost) nothing wrong with allow it. 由于历史原因需要兼容之前的网站 The reason is because of legacy. It was built that way many years ago and if it changes now, too many sites will fail. Plus the security implications are well known, since it has been around for so long. 如果都遵循SOP构建网站过于艰难 In short: it would be much harder to build the Web if everything was subject to SOP]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>SOP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[前端项目理想架构]]></title>
+    <url>%2F2018%2F07%2F21%2Ftech-dream%2F</url>
+    <content type="text"><![CDATA[易于开发 开发工具是否完善 生态圈是否繁荣 社区是否活跃 易于扩展 增加新功能是否容易 新功能是否会显著增加系统复杂度 易于维护 代码是否容易理解 文档是否健全 易于测试 功能的分层是否清晰 副作用少 尽量使用纯函数 易于构建 使用通用的技术和架构 构建工具的选择]]></content>
+      <categories>
+        <category>技术构想</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[React-Router]]></title>
+    <url>%2F2018%2F07%2F21%2FReact-Router%2F</url>
+    <content type="text"><![CDATA[为什么需要react-router 单页应用需要进行页面切换 通过 URL 可以定位到页面 更有语义的组织资源 三种路由实现方式 URL 路径 hash 路由 内存路由 核心API 原理 react-router依赖基础 - historyhistory是一个独立的第三方js库，可以用来兼容在不同浏览器、不同环境下对历史记录的管理，拥有统一的API。具体来说里面的history分为三类: 老浏览器的history: 主要通过hash来实现，对应createHashHistory 高版本浏览器: 通过html5里面的history，对应createBrowserHistory node环境下后端渲染: 主要存储在memeory里面，对应createMemoryHistory 实现方式 createBrowserHistory: 利用HTML5里面的history createHashHistory: 通过hash来存储在不同状态下的history信息 createMemoryHistory: 在内存中进行历史记录的存储 执行URL前进 createBrowserHistory: pushState、replaceState createHashHistory: location.hash=*** location.replace() createMemoryHistory: 在内存中进行历史记录的存储 检测URL回退 createBrowserHistory: popstate createHashHistory: hashchange createMemoryHistory: 因为是在内存中操作，跟浏览器没有关系，不涉及UI层面的事情，所以可以直接进行历史信息的回退 同步每个history对象包含下面的属性： history.length - The number of entries in the history stack history.location - The current location (see below) history.action - The current navigation action (see below) 同时history对象还有个listen方法123456history.listen((location, action) =&gt; &#123; console.log( `The current URL is $&#123;location.pathname&#125;$&#123;location.search&#125;$&#123;location.hash&#125;` ) console.log(`The last navigation action was $&#123;action&#125;`)&#125;)这样一来，就可以根据location的变化来执行对应的action，也就是加载某个路径对应的Component综上，实现URL与UI界面的同步也就转变成location与components之间的同步 具体实现组件层面描述实现过程在react-router中最主要的component是Router RouterContext Link history库起到了中间桥梁的作用 API层面描述实现过程 browserHistory 和 hashHistory hashHistory URL：http://myurl.com/#page/another_page/another_page BrowserHistory URL：http://myurl.com/page/another_page/another_page hashHistory可以兼容低版本浏览器用browserHistory ，在你登录前访问某个url时，server端能拿到完整的url，所以登录后可以帮你重定向到这个url如果用hashHistory server端拿不到#后面的东西所以就不能正确重定向 Browsers do not send the #hash part of URL in any of HTTP requests.Therefore server-side (i.e. NodeJS) would not know what #hash was in the URL when user requested a page.A good example is user trying to load a page that requires a login (via oAuth etc.). Before user is taken to a separate website for authentication, you app’s server-side would tell the authentication vendor what URL redirect user to after a successful login (usually it is to the original URL requested as most websites do this). If you were to use hashHistory - server-side would know only the bits before # symbol and would redirect user to the main page of your app and not a sub-page that user wanted to load.]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React-Router</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Immutability - redux最佳实践]]></title>
+    <url>%2F2018%2F07%2F21%2FReact-immutable%2F</url>
+    <content type="text"><![CDATA[JavaScript 中的对象一般是可变的（Mutable），因为使用了引用赋值，新的对象简单的引用了原始对象，改变新的对象将影响到原始对象如 foo={a: 1}; bar=foo; bar.a=2 你会发现此时 foo.a 也被改成了 2虽然这样做可以节约内存，但当应用复杂后，这就造成了非常大的隐患，Mutable 带来的优点变得得不偿失为了解决这个问题，一般的做法是使用 shallowCopy（浅拷贝）或 deepCopy（深拷贝）来避免被修改，但这样做造成了 CPU 和内存的浪费 优点 优化性能：改变前的state和改变后的state不是同一个对象，直接可以根据state对象不同来判断state已经变化 易于调试和跟踪：改变前的sate和改变后的state都存在，方便追溯 易于推测：state的变化一定是action引起的，每个action对应一个新的state 操作不可变数据的方法原生写法 immutable.jsImmutable Data 就是一旦创建，就不能再被更改的数据。对 Immutable 对象的任何修改或添加删除操作都会返回一个新的 Immutable 对象。Immutable 实现的原理是 Persistent Data Structure（持久化数据结构），也就是使用旧数据创建新数据时，要保证旧数据同时可用且不变。同时为了避免 deepCopy 把所有节点都复制一遍带来的性能损耗，Immutable 使用了 Structural Sharing（结构共享），即如果对象树中一个节点发生变化，只修改这个节点和受它影响的父节点，其它节点则进行共享 Immutable 降低了 Mutable 带来的复杂度12345function touchAndLog(touchFn) &#123; let data = &#123; key: 'value' &#125;; touchFn(data); console.log(data.key); // 猜猜会打印什么？&#125; 在不查看 touchFn 的代码的情况下，因为不确定它对 data 做了什么，你是不可能知道会打印什么（这不是废话吗）但如果 data 是 Immutable 的呢，你可以很肯定的知道打印的是 value 节省内存Immutable.js 使用了 Structure Sharing 会尽量复用内存，甚至以前使用的对象也可以再次被复用没有被引用的对象会被垃圾回收123456789import &#123; Map&#125; from 'immutable';let a = Map(&#123; select: 'users', filter: Map(&#123; name: 'Cam' &#125;)&#125;)let b = a.set('select', 'people');a === b; // falsea.get('filter') === b.get('filter'); // true上面 a 和 b 共享了没有变化的 filter 节点 Undo/Redo，Copy/Paste，甚至时间旅行这些功能做起来小菜一碟因为每次数据都是不一样的，只要把这些数据放到一个数组里储存起来，想回退到哪里就拿出对应数据即可，很容易开发出撤销重做这种功能 并发安全传统的并发非常难做，因为要处理各种数据不一致问题，因此『聪明人』发明了各种锁来解决。但使用了 Immutable 之后，数据天生是不可变的，并发锁就不需要了。 然而现在并没什么卵用，因为 JavaScript 还是单线程运行的啊。但未来可能会加入，提前解决未来的问题不也挺好吗? 拥抱函数式编程Immutable 本身就是函数式编程中的概念，纯函数式编程比面向对象更适用于前端开发。因为只要输入一致，输出必然一致，这样开发的组件更易于调试和组装 immutability-helper immer]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>immutable-js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[React多种方法绑定this]]></title>
     <url>%2F2018%2F07%2F20%2FReact-bind-this%2F</url>
     <content type="text"><![CDATA[React.createClass 自动绑定React 中创建组件的方式已经很多，比较古老的诸如 React.createClass 应该很多人并不陌生。当然，从 React 0.13 开始，可以使用 ES6 Class 代替 React.createClass 了，这应该是今后推荐的方法。 但是需要知道，React.createClass 创建的组件，可以自动绑定 this。也就是说，this 这个关键字会自动绑定在组件实例上面123// This magically works with React.createClass// because `this` is bound for you.onChange = &#123;this.handleChange&#125;当然很遗憾，对于组件的创建，官方已经推荐使用 class 声明组件或使用 functional 无状态组件： Later, classes were added to the language as part of ES2015, so we added the ability to create React components using JavaScript classes. Along with functional components, JavaScript classes are now the preferred way to create components in React. For your existing createClass components, we recommend that you migrate them to JavaScript classes. 我认为，这其实是 React 框架本身的自我完善和对未来的迎合，是框架和语言发展的大势所趋 渲染时绑定通过前文，我们知道最传统的组件创建方式不会有 this 绑定的困扰。接下来，我们假定所有的组件都采取 ES6 classes 方式声明。这种情况下，this 无法自动绑定。一个常见的解决方案便是1onChange = &#123;this.handleChange.bind(this)&#125;这种方法简明扼要，但是有一个潜在的性能问题：当组件每次重新渲染时，都会有一个新的函数创建。OMG! 这听上去貌似是一个很大的问题，但是其实在真正的开发场景中，由此引发的性能问题往往不值一提（除非是大型组件消费类应用或游戏） 箭头函数绑定这种方法其实和第二种类似，拜 ES6 箭头函数所赐，我们可以隐式绑定 this：1onChange = &#123;e =&gt; this.handleChange(e)&#125;当然，也与第二种方法一样，它同样存在潜在的性能问题。下面将要介绍的两种方法，可以有效规避不必要的性能消耗，请继续阅读。 Constructor 内绑定constructor 方法是类的默认方法，通过new命令生成对象实例时，自动调用该方法。 所以我们可以1234constructor(props) &#123; super(props); this.handleChange = this.handleChange.bind(this);&#125;这种方式往往被推荐为“最佳实践”，也是笔者最为常用的方法。 但是就个人习惯而言，我认为与前两种方法相比，constructor 内绑定在可读性和可维护性上也许有些欠缺。 同时，我们知道在 constructor 声明的方法不会存在实例的原型上，而属于实例本身的方法。每个实例都有同样一个 handleChange，这本身也是一种重复和浪费。 Class 属性中使用 = 和箭头函数这个方法依赖于 ES next 的新特性1234handleChange = () =&gt; &#123; // call this function from render // and this.whatever in here works fine.&#125;; 小总结本文在对比 React 绑定 this 的五种方法的同时，也由远及近了解了 javascript 语言的发展：从 ES5 的 bind， 到 ES6 的箭头函数，再到 ES next 对 class 的改进。 React 作为蓬勃发展的框架也同样在与时具进，不断完善，结合语言特性的发展不断调整着自身。 最后，我们通过这张图片来完整回顾 牛逼做法下面代码是我前同事杨峥的骚操作，构造了一个BaseComponent的类，里面的bindMethods方法会将这个类里面所有以 _ 开头的方法给自动绑定this，其他组件直接继承这个BaseComponent就可以自动绑定了12345678910111213141516171819202122232425262728293031323334353637383940import React from 'react';export default class BaseComponent extends React.Component &#123; constructor(props) &#123; super(props); this.state = this.getInitState(); this.bindMethods(); &#125; getInitState() &#123; return &#123;&#125;; &#125; bindMethods() &#123; // only method startwith only one _ will be mounted let props = []; let obj = this; do &#123; let l = Object.getOwnPropertyNames(obj) .concat(Object.getOwnPropertySymbols(obj).map(s =&gt; s.toString())) .sort() .filter((p, i, arr) =&gt; p[0] === '_' &amp;&amp; p[1] !== '_' &amp;&amp; typeof obj[p] === 'function' &amp;&amp; p !== 'constructor' &amp;&amp; props.indexOf(p) === -1 ); props = props.concat(l) &#125; while ( (obj = Object.getPrototypeOf(obj)) &amp;&amp; //walk-up the prototype chain Object.getPrototypeOf(obj) //not the the Object prototype methods (hasOwnProperty, etc...) ) for (let prop of props) &#123; this[prop] = this[prop].bind(this); &#125; &#125;&#125;每每想起骚哥，那种对代码的追求和那股较真的劲儿，让我深刻的认识到一个泥水匠和一个艺术家的区别PS：他们初次review我代码被打回去了10+次 Passing Arguments to Event HandlersInside a loop it is common to want to pass an extra parameter to an event handler. For example, if id is the row ID, either of the following would work12&lt;button onClick=&#123;(e) =&gt; this.deleteRow(id, e)&#125;&gt;Delete Row&lt;/button&gt;&lt;button onClick=&#123;this.deleteRow.bind(this, id)&#125;&gt;Delete Row&lt;/button&gt;The above two lines are equivalent, and use arrow functions and Function.prototype.bind respectivelyIn both cases, the e argument representing the React event will be passed as a second argument after the ID. With an arrow function, we have to pass it explicitly, but with bind any further arguments are automatically forwarded.]]></content>
@@ -8,8 +150,8 @@
         <category>React</category>
       </categories>
       <tags>
-        <tag>bind</tag>
         <tag>this</tag>
+        <tag>bind</tag>
       </tags>
   </entry>
   <entry>
