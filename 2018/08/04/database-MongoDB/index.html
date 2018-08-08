@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/10556018/42560280-df45afde-8528-11e8-89b8-90ab96f65c50.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/10556018/42560280-df45afde-8528-11e8-89b8-90ab96f65c50.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/10556018/42560280-df45afde-8528-11e8-89b8-90ab96f65c50.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/10556018/42560280-df45afde-8528-11e8-89b8-90ab96f65c50.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MongoDB," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="For those who are new to MongoDB, it’s a NoSQL-Document database. Documents comprise sets of key-value pairs and are the basic unit of data in MongoDB. It is definitely one of the most popular NoSQL d">
+<meta name="keywords" content="MongoDB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MongoDB - The Good, The Bad, and The Ugly">
+<meta property="og:url" content="http://yoursite.com/2018/08/04/database-MongoDB/index.html">
+<meta property="og:site_name" content="Haile&#39;s Blog">
+<meta property="og:description" content="For those who are new to MongoDB, it’s a NoSQL-Document database. Documents comprise sets of key-value pairs and are the basic unit of data in MongoDB. It is definitely one of the most popular NoSQL d">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-05T12:34:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MongoDB - The Good, The Bad, and The Ugly">
+<meta name="twitter:description" content="For those who are new to MongoDB, it’s a NoSQL-Document database. Documents comprise sets of key-value pairs and are the basic unit of data in MongoDB. It is definitely one of the most popular NoSQL d">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/04/database-MongoDB/"/>
+
+
+
+
+
+  <title>MongoDB - The Good, The Bad, and The Ugly | Haile's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Haile's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/04/database-MongoDB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Haile Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/10556018/42558701-ab98e452-8524-11e8-8545-17971d41dcbf.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Haile's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MongoDB - The Good, The Bad, and The Ugly</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-04T17:50:53+08:00">
+                2018-08-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Database/" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/04/database-MongoDB/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/08/04/database-MongoDB/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>For those who are new to MongoDB, it’s a NoSQL-Document database. Documents comprise sets of key-value pairs and are the basic unit of data in MongoDB.</p>
+<p>It is definitely one of the most popular NoSQL databases as of now. It’s widely accepted and fits a wide variety of use cases (though not all of them).</p>
+<p>In this article of the good, the bad, and the ugly, I would like to give a brief overview based on my experience with MongoDB during the past few years.</p>
+<h3 id="The-Good"><a href="#The-Good" class="headerlink" title="The Good"></a>The Good</h3><p>Since MongoDB is as popular as it is today, there should be more good than the bad and the ugly. If not, developers wouldn’t accept it. Below are a few good things about MongoDB.</p>
+<h4 id="Flexible-Data-Model"><a href="#Flexible-Data-Model" class="headerlink" title="Flexible Data Model"></a>Flexible Data Model</h4><p>In today’s dynamic use cases and ever-changing applications, having a flexible data model is a boon. A flexible data model means that there is no predefined schema, and the document can hold any set of values based on any key.</p>
+<h4 id="Expressive-Query-Syntax"><a href="#Expressive-Query-Syntax" class="headerlink" title="Expressive Query Syntax"></a>Expressive Query Syntax</h4><p>The query language of MongoDB is very expressive and is easy to understand. Many would say that it’s not like SQL. But why should we stick to a SQL-like query language when we can move forward and be more expressive and simple?</p>
+<h4 id="Easy-to-Learn"><a href="#Easy-to-Learn" class="headerlink" title="Easy to Learn"></a>Easy to Learn</h4><p>MongoDB is easy to learn and quick to start with. The basic installation, setup, and execution doesn’t take more than a few hours. The more robust setup might be complex, but I will talk about it later.</p>
+<p>You should be able to use the MongoDB database with ease in your project. </p>
+<h4 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h4><p>Query performance is one of the strong points of MongoDB. It stores most of the workable data in RAM. All data is persisted in the hard disk, but during a query, it does not fetch the data from the hard disk. It gets it from the local RAM and, hence, is able to serve much faster. Here, it is important to have the right indexes and enough RAM to benefit from MongoDB’s performance.</p>
+<h4 id="Scalable-and-Reliable"><a href="#Scalable-and-Reliable" class="headerlink" title="Scalable and Reliable"></a>Scalable and Reliable</h4><p>MongoDB is highly scalable, using shards. Horizontal scalability is a big plus in most NoSQL databases. MongoDB is no exception.</p>
+<p>It is also highly reliable due to its replica sets, and the data is replicated in more nodes asynchronously.</p>
+<h4 id="Async-Drivers"><a href="#Async-Drivers" class="headerlink" title="Async Drivers"></a>Async Drivers</h4><p>Nonblocking IO using async drivers are essential in all modern applications that are built for speed. MongoDB has async driver support for most of the popular languages.</p>
+<h4 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation</h4><p>Having a good documentation can make developers’ lives a lot easier, especially when the developer is new to the technology. MongoDB has superb documentation. </p>
+<h4 id="Text-Search"><a href="#Text-Search" class="headerlink" title="Text Search"></a>Text Search</h4><p>If you are building a website that needs to search all of your data, text search is essential. For example, an eCommerce website with a text-search-enabled database can be a lot more lucrative for the users.</p>
+<h4 id="Server-Side-Script"><a href="#Server-Side-Script" class="headerlink" title="Server-Side Script"></a>Server-Side Script</h4><p>If you need some operations to be performed on the server side and not in your application, you can do that in MongoDB. Put your list of mongo statements in a .js file and execute mongo yourFile.js.</p>
+<h4 id="Documents-Objects"><a href="#Documents-Objects" class="headerlink" title="Documents = Objects"></a>Documents = Objects</h4><p>The good thing about having a document database is that your object can directly be stored as a single document in MongoDB. There is no need of an ORM here.</p>
+<h3 id="The-Bad"><a href="#The-Bad" class="headerlink" title="The Bad"></a>The Bad</h3><p>We looked at the various good things about MongoDB. Below are the few bad things. I am sure the critics are more interested in this part. MongoDB can be evil if we use it in for an improper use case.</p>
+<h4 id="Transactions"><a href="#Transactions" class="headerlink" title="Transactions"></a>Transactions</h4><p>Nowadays, there are very few applications that actually require transactions. But some applications still need it. MongoDB, unfortunately, does not support transactions. So if you need to update more than one document or collection per user request, don’t use MongoDB. It may lead to corrupted data, as there is no ACID guarantee. Rollbacks have to be handled by your application.</p>
+<h4 id="No-Triggers"><a href="#No-Triggers" class="headerlink" title="No Triggers"></a>No Triggers</h4><p>In RDBMSs, we have the luxury of triggers, which have saved us in many cases. This luxury is missing in MongoDB.</p>
+<h4 id="Storage"><a href="#Storage" class="headerlink" title="Storage"></a>Storage</h4><p>MongoDB needs more storage than other popular databases. The introduction of WiredTiger in MongoDB 3.0 has solved the storage issue, but using WiredTiger may not be ideal for most of the applications.</p>
+<h4 id="Disk-Cleanup"><a href="#Disk-Cleanup" class="headerlink" title="Disk Cleanup"></a>Disk Cleanup</h4><p>MongoDB does not automatically clean up the disk space. So if the documents are rewritten or deleted, the disk space is not released. This happens during restart or has to be done manually.</p>
+<h3 id="The-Ugly"><a href="#The-Ugly" class="headerlink" title="The Ugly"></a>The Ugly</h3><p>Sometimes, the ugly can be worse than the bad. It’s important to know the ugly part before using the technology. It does not stop you from using the product, but it can make your life very tough.</p>
+<h4 id="Hierarchy-of-Self"><a href="#Hierarchy-of-Self" class="headerlink" title="Hierarchy of Self"></a>Hierarchy of Self</h4><p>If you have a data model where an object can have recursive children (i.e., same object type is a child of an object and it keeps going for ‘n’ levels), the MongoDB document can become very ugly. Indexing, searching, and sorting these recursive embedded documents can be very hard.</p>
+<h4 id="Joins"><a href="#Joins" class="headerlink" title="Joins"></a>Joins</h4><p>Joining two documents is also not simple in MongoDB. Though MongoDB 3.2 supports left outer joins (lookup), it is not yet mature. If your applications require pulling data from multiple collections in a single query, it might not be possible. Hence you have to make multiple queries, which might make your code look a bit messy.</p>
+<h4 id="Indexing"><a href="#Indexing" class="headerlink" title="Indexing"></a>Indexing</h4><p>Though speed is advertised as a big plus of MongoDB, it is achievable only if you have the right indexes. If you end up having poorly implemented indexes or composite indexes in an incorrect order, MongoDB can be one of the slowest databases.</p>
+<p>If you have a lot of filter by and sort by fields, you may end up having a lot of indexes on a collection, which, of course, is not good.</p>
+<h4 id="Duplicate-Data"><a href="#Duplicate-Data" class="headerlink" title="Duplicate Data"></a>Duplicate Data</h4><p>You may end up having a lot of duplicate data, as MongoDB does not support well-defined relationships. Updating this duplicate data can be hard and, also due to lack of ACID compliance, we might end up having corrupted data.</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>Overall, MongoDB is a good database, provided it suits your use case. If it does not, it can get very ugly. Try using it in the wrong place and you will get burned. </p>
+<p>Analyze it well and consult an expert. You will definitely enjoy using it when it’s right.</p>
+<p>As for the bad and the ugly parts, you can work around a few of them using the design patterns which I have explained in my article <a href="http://thetechnick.blogspot.com/2016/06/mongodb-design-patterns.html" target="_blank" rel="noopener">MongoDB Design Patterns.</a></p>
+<h3 id="MongoDB-Best-Practices"><a href="#MongoDB-Best-Practices" class="headerlink" title="MongoDB Best Practices"></a>MongoDB Best Practices</h3><p>A few MongoDB best practices are listed below:</p>
+<h4 id="Hardware"><a href="#Hardware" class="headerlink" title="Hardware"></a>Hardware</h4><ul>
+<li>Ensure your working set fits in RAM.</li>
+<li>Use compression.</li>
+<li>Run a single MongoDB per server.</li>
+<li>Use SSDs for write-heavy applications.</li>
+</ul>
+<h4 id="Data-Model"><a href="#Data-Model" class="headerlink" title="Data Model"></a>Data Model</h4><ul>
+<li>Store all data for a record in a single document.</li>
+<li>Avoid large documents.</li>
+<li>Avoid unnecessarily long field names.</li>
+<li>Eliminate unnecessary indexes.</li>
+<li>Remove indexes that are prefixes of other indexes.</li>
+</ul>
+<h4 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h4><ul>
+<li>Update only modified fields.</li>
+<li>Avoid negation in queries.</li>
+<li>Run explain() for every complex query.</li>
+<li>Use covered queries when possible.</li>
+<li>Use bulk inserts when needed.</li>
+</ul>
+<h4 id="Setup-and-Configuration"><a href="#Setup-and-Configuration" class="headerlink" title="Setup and Configuration"></a>Setup and Configuration</h4><ul>
+<li>Have at least one secondary and one arbiter.</li>
+<li>Set write concern to 2 when the data is critical.</li>
+<li>Havea  daily dump of data for backup.</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MongoDB/" rel="tag"># MongoDB</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/28/network-HTTP1-x/" rel="next" title="HTTP 1.X">
+                <i class="fa fa-chevron-left"></i> HTTP 1.X
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/07/react-flux/" rel="prev" title="Flux">
+                Flux <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://user-images.githubusercontent.com/10556018/42558701-ab98e452-8524-11e8-8545-17971d41dcbf.png"
+                alt="Haile Huang" />
+            
+              <p class="site-author-name" itemprop="name">Haile Huang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/HaileHuang" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/Tim_Rosses" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Good"><span class="nav-number">1.</span> <span class="nav-text">The Good</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Flexible-Data-Model"><span class="nav-number">1.1.</span> <span class="nav-text">Flexible Data Model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Expressive-Query-Syntax"><span class="nav-number">1.2.</span> <span class="nav-text">Expressive Query Syntax</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Easy-to-Learn"><span class="nav-number">1.3.</span> <span class="nav-text">Easy to Learn</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Performance"><span class="nav-number">1.4.</span> <span class="nav-text">Performance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scalable-and-Reliable"><span class="nav-number">1.5.</span> <span class="nav-text">Scalable and Reliable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Async-Drivers"><span class="nav-number">1.6.</span> <span class="nav-text">Async Drivers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Documentation"><span class="nav-number">1.7.</span> <span class="nav-text">Documentation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Text-Search"><span class="nav-number">1.8.</span> <span class="nav-text">Text Search</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Server-Side-Script"><span class="nav-number">1.9.</span> <span class="nav-text">Server-Side Script</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Documents-Objects"><span class="nav-number">1.10.</span> <span class="nav-text">Documents = Objects</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Bad"><span class="nav-number">2.</span> <span class="nav-text">The Bad</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Transactions"><span class="nav-number">2.1.</span> <span class="nav-text">Transactions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#No-Triggers"><span class="nav-number">2.2.</span> <span class="nav-text">No Triggers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Storage"><span class="nav-number">2.3.</span> <span class="nav-text">Storage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Disk-Cleanup"><span class="nav-number">2.4.</span> <span class="nav-text">Disk Cleanup</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Ugly"><span class="nav-number">3.</span> <span class="nav-text">The Ugly</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hierarchy-of-Self"><span class="nav-number">3.1.</span> <span class="nav-text">Hierarchy of Self</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Joins"><span class="nav-number">3.2.</span> <span class="nav-text">Joins</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Indexing"><span class="nav-number">3.3.</span> <span class="nav-text">Indexing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Duplicate-Data"><span class="nav-number">3.4.</span> <span class="nav-text">Duplicate Data</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MongoDB-Best-Practices"><span class="nav-number">5.</span> <span class="nav-text">MongoDB Best Practices</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hardware"><span class="nav-number">5.1.</span> <span class="nav-text">Hardware</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Model"><span class="nav-number">5.2.</span> <span class="nav-text">Data Model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Application"><span class="nav-number">5.3.</span> <span class="nav-text">Application</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Setup-and-Configuration"><span class="nav-number">5.4.</span> <span class="nav-text">Setup and Configuration</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Haile Huang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://hailehuang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/08/04/database-MongoDB/';
+          this.page.identifier = '2018/08/04/database-MongoDB/';
+          this.page.title = 'MongoDB - The Good, The Bad, and The Ugly';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://hailehuang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
