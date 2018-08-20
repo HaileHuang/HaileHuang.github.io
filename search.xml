@@ -98,7 +98,7 @@
     <url>%2F2018%2F07%2F23%2FJS-event%2F</url>
     <content type="text"><![CDATA[事件触发三阶段 document往事件触发处传播，遇到注册的捕获事件会触发 传播到事件触发处时触发注册的事件 从事件触发处往 document 传播，遇到注册的冒泡事件会触发 事件触发一般来说会按照上面的顺序进行，但是也有特例，如果给一个目标节点同时注册冒泡和捕获事件，事件触发会按照注册的顺序执行1234567// 以下会先打印冒泡然后是捕获node.addEventListener('click',(event) =&gt;&#123; console.log('冒泡')&#125;,false);node.addEventListener('click',(event) =&gt;&#123; console.log('捕获 ')&#125;,true) 注册事件通常我们使用 addEventListener 注册事件，该函数的第三个参数可以是布尔值，也可以是对象。对于布尔值 useCapture 参数来说，该参数默认值为 false 。useCapture 决定了注册的事件是捕获事件还是冒泡事件。对于对象参数来说，可以使用以下几个属性: capture，布尔值，和 useCapture 作用一样 once，布尔值，值为 true 表示该回调只会调用一次，调用后会移除监听 passive，布尔值，表示永远不会调用 preventDefault 阻止冒泡 event.stopPropagation(): 事件处理过程中，阻止了事件冒泡，但不会阻击默认行为 return false: 事件处理过程中，阻止了事件冒泡，也阻止了默认行为 event.preventDefault() 阻止了默认行为，但不阻止冒泡 事件代理如果一个节点中的子节点是动态生成的，那么子节点需要注册事件的话应该注册在父节点上12345678910111213&lt;ul id="ul"&gt; &lt;li&gt;1&lt;/li&gt; &lt;li&gt;2&lt;/li&gt; &lt;li&gt;3&lt;/li&gt; &lt;li&gt;4&lt;/li&gt; &lt;li&gt;5&lt;/li&gt;&lt;/ul&gt;&lt;script&gt; let ul = document.querySelector('##ul') ul.addEventListener('click', (event) =&gt; &#123; console.log(event.target); &#125;)&lt;/script&gt;事件代理的方式相对于直接给目标注册事件来说，有以下优点: 节省内存 不需要给子节点注销事件]]></content>
       <categories>
-        <category>browser</category>
+        <category>Browser</category>
       </categories>
       <tags>
         <tag>event</tag>
