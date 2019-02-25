@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/10556018/42560280-df45afde-8528-11e8-89b8-90ab96f65c50.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/10556018/42560280-df45afde-8528-11e8-89b8-90ab96f65c50.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/10556018/42560280-df45afde-8528-11e8-89b8-90ab96f65c50.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/10556018/42560280-df45afde-8528-11e8-89b8-90ab96f65c50.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="scrum," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="概述Scrum是一个用于开发和维护复杂产品的框架 ，是一个增量的、迭代的开发过程。在这个框架中，整个开发过程由若干个短的迭代周期组成，一个短的迭代周期称为一个Sprint，每个Sprint的建议长度是2到4周(互联网产品研发可以使用1周的Sprint)。在Scrum中，使用产品Backlog来管理产品的需求，产品backlog是一个按照商业价值排序的需求列表，列表条目的体现形式通常为用户故事。Sc">
+<meta name="keywords" content="scrum">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SCRUM敏捷开发">
+<meta property="og:url" content="http://yoursite.com/2018/10/30/management-scrum/index.html">
+<meta property="og:site_name" content="Haile&#39;s Blog">
+<meta property="og:description" content="概述Scrum是一个用于开发和维护复杂产品的框架 ，是一个增量的、迭代的开发过程。在这个框架中，整个开发过程由若干个短的迭代周期组成，一个短的迭代周期称为一个Sprint，每个Sprint的建议长度是2到4周(互联网产品研发可以使用1周的Sprint)。在Scrum中，使用产品Backlog来管理产品的需求，产品backlog是一个按照商业价值排序的需求列表，列表条目的体现形式通常为用户故事。Sc">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://www.scrumcn.com/agile/wp-content/uploads/2014/04/ScrumCN_Scrum_Process_710.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/10556018/47697565-91fe8c80-dc46-11e8-88a5-3aa5368f7e87.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/10556018/47697574-a6428980-dc46-11e8-92db-e25696c56a41.png">
+<meta property="og:updated_time" content="2019-02-25T16:16:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SCRUM敏捷开发">
+<meta name="twitter:description" content="概述Scrum是一个用于开发和维护复杂产品的框架 ，是一个增量的、迭代的开发过程。在这个框架中，整个开发过程由若干个短的迭代周期组成，一个短的迭代周期称为一个Sprint，每个Sprint的建议长度是2到4周(互联网产品研发可以使用1周的Sprint)。在Scrum中，使用产品Backlog来管理产品的需求，产品backlog是一个按照商业价值排序的需求列表，列表条目的体现形式通常为用户故事。Sc">
+<meta name="twitter:image" content="http://www.scrumcn.com/agile/wp-content/uploads/2014/04/ScrumCN_Scrum_Process_710.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/30/management-scrum/"/>
+
+
+
+
+
+  <title>SCRUM敏捷开发 | Haile's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Haile's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/30/management-scrum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Haile Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/10556018/53352661-27443000-395e-11e9-8d7b-86c57c4968aa.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Haile's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SCRUM敏捷开发</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-30T13:21:59+08:00">
+                2018-10-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Management/" itemprop="url" rel="index">
+                    <span itemprop="name">Management</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/30/management-scrum/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/10/30/management-scrum/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>Scrum</code>是一个用于开发和维护复杂产品的框架 ，是一个增量的、迭代的开发过程。在这个框架中，整个开发过程由若干个短的迭代周期组成，一个短的迭代周期称为一个<code>Sprint</code>，每个<code>Sprint</code>的建议长度是2到4周(互联网产品研发可以使用1周的<code>Sprint</code>)。在<code>Scrum</code>中，使用<code>产品Backlog</code>来管理产品的需求，<code>产品backlog</code>是一个按照商业价值排序的需求列表，列表条目的体现形式通常为用户故事。<code>Scrum团队</code>总是先开发对客户具有较高价值的需求。在<code>Sprint</code>中，<code>Scrum团队</code>从<code>产品Backlog</code>中挑选最高优先级的需求进行开发。挑选的需求在<code>Sprint计划会议</code>上经过讨论、分析和估算得到相应的任务列表，我们称它为<code>Sprint backlog</code>。在每个迭代结束时，<code>Scrum团队</code>将递交潜在可交付的产品增量。 <code>Scrum</code>起源于软件开发项目，但它适用于任何复杂的或是创新性的项目。</p>
+<p><img src="http://www.scrumcn.com/agile/wp-content/uploads/2014/04/ScrumCN_Scrum_Process_710.png" alt="enter image description here"></p>
+<p><code>SCRUM框架包括3个角色、3个工件、4个事件、5个价值</code></p>
+<h2 id="SCRUM团队的三个角色"><a href="#SCRUM团队的三个角色" class="headerlink" title="SCRUM团队的三个角色"></a>SCRUM团队的三个角色</h2><h3 id="产品负责人"><a href="#产品负责人" class="headerlink" title="产品负责人"></a>产品负责人</h3><p><code>产品负责人负责最大化产品以及开发团队工作的价值</code><br>产品负责人是管理产品待办事项列表的唯一责任人。产品待办事项列表的管理包括:</p>
+<ul>
+<li>清晰地表达产品代办事项列表条目</li>
+<li>对产品代办事项列表中的条目进行排序,最好地实现目标和使命</li>
+<li>确保开发团队所执行工作的价值</li>
+<li>确保产品代办事项列表对所有人可见、透明、清晰,并且显示 Scrum 团队的下一步工作</li>
+<li>确保开发团队对产品代办事项列表中的条目达到一定程度的理解</li>
+</ul>
+<p>产品负责人是一个人,而不是一个委员会。产品负责人可能会在产品代办事项列表中 体现一个委员会的需求,但要想改变某条目的优先级必须先说服产品负责人。</p>
+<p>为保证产品负责人的工作取得成功,组织中的所有人员都必须尊重他的决定。产品负 责人所作的决定在产品待办事项列表的内容和排序中要清晰可见。任何人都不得要求开发 团队按照另一套需求开展工作,开发团队也不允许听从任何其他人的指令</p>
+<h3 id="开发团队"><a href="#开发团队" class="headerlink" title="开发团队"></a>开发团队</h3><p>开发团队包含了专业人员,负责在每个<code>Sprint</code>的结尾交付潜在可发布的“完成”产品增量</p>
+<ul>
+<li>他们是自组织的,没有人(即使是<code>Scrum Master</code>都不可以)告诉开发团队如何把产品 代办事项列表变成潜在可发布的功能。</li>
+<li>开发团队是跨职能的,团队作为一个整体拥有创造产品增量所需要的全部技能。</li>
+<li><code>Scrum</code>不认可开发团队成员的头衔,无论承担哪种工作他们都是开发者。此规则无一例外。</li>
+<li>开发团队中的每个成员可以有特长和专注领域,但是责任归属于整个开发团队</li>
+<li>开发团队不包含如测试或业务分析等负责特定领域的子团队</li>
+</ul>
+<h4 id="开发团队的规模"><a href="#开发团队的规模" class="headerlink" title="开发团队的规模"></a>开发团队的规模</h4><p>开发团队最佳规模是小到足以保持敏捷性,大到足以完成重要工作。少于 3 人的开发 团队没有足够的交互,因而所获得的生产力增长也不会很大。小团队在<code>Sprint</code>中可能会 受到技能限制,从而导致无法交付可发布的产品增量。大于 9 人的团队需要过多的协调沟 通工作。大型团队会产生太多复杂性,不便于经验过程管理。<code>产品负责人</code>和<code>Scrum Master</code>的角色不包含在此数字中,除非他们也参与执行<code>Sprint</code>代表事项列表中的工作。</p>
+<h3 id="Scrum-Master"><a href="#Scrum-Master" class="headerlink" title="Scrum Master"></a>Scrum Master</h3><p><code>Scrum Master 负责确保 Scrum 被理解并实施</code>。为了达到这个目的,<code>Scrum Master</code>要确保<code>Scrum</code>团队遵循<code>Scrum</code>的理论、实践和规则。<code>Scrum Master</code>是<code>Scrum团队</code>中的服务式领导。</p>
+<p><code>Scrum Master</code>帮助<code>Scrum</code>团队外的人员了解他们如何与<code>Scrum</code>团队交互是有益的。<code>Scrum Master</code>通过改变这些交互来最大化<code>Scrum</code>团队所创造的价值。</p>
+<h4 id="Scrum-Master-服务于产品负责人"><a href="#Scrum-Master-服务于产品负责人" class="headerlink" title="Scrum Master 服务于产品负责人"></a>Scrum Master 服务于产品负责人</h4><p><code>Scrum Master</code>以各种方式服务于产品负责人,包括:</p>
+<ul>
+<li>找到有效管理产品代办事项列表的技巧</li>
+<li>清晰地和开发团队沟通愿景、目标和产品代表事项列表条目</li>
+<li>教导开发团队创建清晰简明的产品代表事项列表条目</li>
+<li>在经验主义环境中理解长期的产品规划</li>
+<li>理解并实践敏捷</li>
+<li>按需推动<code>Scrum</code>活动</li>
+</ul>
+<h4 id="Scrum-Master-服务于开发团队"><a href="#Scrum-Master-服务于开发团队" class="headerlink" title="Scrum Master 服务于开发团队"></a>Scrum Master 服务于开发团队</h4><p><code>Scrum Master</code>以各种方式服务于开发团队,包括:</p>
+<ul>
+<li>指导开发团队自组织和跨职能</li>
+<li>教导并领导开发团队创造高价值的产品</li>
+<li>移除开发团队进展过程中的障碍</li>
+<li>按需推动<code>Scrum</code>活动</li>
+<li>在<code>Scrum</code>还未完全被采纳和理解的组织环境下指导开发团队</li>
+</ul>
+<h2 id="SCRUM的三个工件"><a href="#SCRUM的三个工件" class="headerlink" title="SCRUM的三个工件"></a>SCRUM的三个工件</h2><p><code>Scrum</code>的工件以不同的方式展现工作和价值,可以用来提供透明性以及检验和适应的机会。<code>Scrum</code>中所定义的工件能最大化关键信息的透明性,来保证<code>Scrum团队</code>成功地交付完成的增量。</p>
+<h3 id="PRODUCT-BACKLOG-–-产品待办事项列表"><a href="#PRODUCT-BACKLOG-–-产品待办事项列表" class="headerlink" title="PRODUCT BACKLOG – 产品待办事项列表"></a>PRODUCT BACKLOG – 产品待办事项列表</h3><p><code>产品待办事项列表</code>是一个排序的列表,包含所有产品需要的东西,也是产品需求变动的唯一来源。产品负责人负责<code>产品待办事项列表</code>的内容、可用性和优先级。<br><code>产品待办事项列表</code>列出了所有的特性、功能、需求、改进方法和缺陷修复等对未来发布产品进行的改变。<code>产品待办事项列表</code>条目包含描述、次序和估算的特征。<br><code>产品待办事项列表</code>通常以价值、风险、优先级和必须性排序。它是一个按照优先级由高到低排列的一个序列，每个条目有唯一的顺序。排在顶部的<code>产品待办事项列表</code>条目需要立即进行开发。排序越高,<code>产品待办事项列表</code>条目越紧急,就越需要仔细斟酌,并且对其价值的意见越一致。</p>
+<p><img src="https://user-images.githubusercontent.com/10556018/47697565-91fe8c80-dc46-11e8-88a5-3aa5368f7e87.png" alt="Alt text"></p>
+<h3 id="SPRINT-BACKLOG"><a href="#SPRINT-BACKLOG" class="headerlink" title="SPRINT BACKLOG"></a>SPRINT BACKLOG</h3><p><code>Sprint代办事项列表</code>是一组为当前<code>Sprint</code>选出的产品代办事项列表条目,外加交付 产品增量和实现<code>Sprint</code>目标的计划。<code>Sprint代办事项列表</code>是开发团队对于哪些功能要包 含在下个增量中,以及交付那些功能所需工作的预计。</p>
+<p><code>Sprint代办事项列表</code>定义了开发团队把<code>产品代办事项列表</code>条目转换成“完成”的增量 所需要执行的工作。<code>Sprint代办事项列表</code>使开发团队确定的、达到<code>Sprint</code>目标所需的工作清晰可见。</p>
+<p><code>Sprint代办事项列表</code>是一份足够具体的计划,使得进度上的改变能在每日例会中得到理解。<br><img src="https://user-images.githubusercontent.com/10556018/47697574-a6428980-dc46-11e8-92db-e25696c56a41.png" alt="Alt text"></p>
+<h3 id="产品增量（PRODUCT-INCREMENT）"><a href="#产品增量（PRODUCT-INCREMENT）" class="headerlink" title="产品增量（PRODUCT INCREMENT）"></a>产品增量（PRODUCT INCREMENT）</h3><p>增量是一个<code>Sprint</code>完成的所有<code>产品待办列表项</code>的总和，以及之前所有<code>Sprint</code>所产生的增量的价值总和。在<code>Sprint</code>的最后，新的增量必须是“完成”的，这意味着它必须可用并且达到了<code>Scrum 团队</code>“完成”的定义的标准。增量是在<code>Sprint</code>结束时支持经验主义的可检视的和已完成的产品组成部分。增量是迈向愿景或目标的一步。无论产品负责人是否决定发布它，增量必须可用。</p>
+<h2 id="SCRUM的四个事件"><a href="#SCRUM的四个事件" class="headerlink" title="SCRUM的四个事件"></a>SCRUM的四个事件</h2><p><code>Scrum</code>使用固定的事件来产生规律性，以此来减少<code>Scrum</code>之外的其它会议的必要。所有事 件都是有时间盒限定的事件，也就是说每一个事件限制在最长的时间范围内。一旦<code>Sprint</code>开始，它的持续时间是固定的，不能缩短或者延长。而其他事件则可以在该事件的目标达成之后可以立即终止，如此确保时间被适当地使用而不会造成过程中的浪费。</p>
+<h3 id="Sprint"><a href="#Sprint" class="headerlink" title="Sprint"></a>Sprint</h3><p><code>Sprint</code>是<code>Scrum</code>的核心，其长度(持续时间)为一个月或更短时间的限时，在这段时间内构建一个“完成的”、可用的和潜在可发布的产品增量。在整个开发过程期间，<code>Sprint</code>的长度通常保持一致。前一个<code>Sprint</code>结束后，新的下一个<code>Sprint</code>紧接着立即开始。<br><code>Sprint</code>由<code>Sprint计划会议</code>、<code>每日Scrum 站会</code>、<code>开发工作</code>、 <code>Sprint回顾会议</code>构成。</p>
+<p>在<code>Sprint</code>期间:</p>
+<ul>
+<li>不能做出有害于<code>Sprint</code>目标的改变</li>
+<li>不能降低质量</li>
+<li>随着对信息掌握的增加，产品负责人与开发团队之间对范围内要做的事可能会要澄清和重新协商。</li>
+</ul>
+<h3 id="Sprint-计划会议"><a href="#Sprint-计划会议" class="headerlink" title="Sprint 计划会议"></a>Sprint 计划会议</h3><p><code>Sprint</code>中要做的工作在<code>Sprint计划会议</code>中来做计划。这份工作计划是由整个<code>Scrum</code>团队共同协作完成的。</p>
+<p><code>Sprint计划会议</code>回答以下问题:</p>
+<h4 id="1-接下来的-Sprint-交付的增量中要包含什么内容"><a href="#1-接下来的-Sprint-交付的增量中要包含什么内容" class="headerlink" title="1. 接下来的 Sprint 交付的增量中要包含什么内容?"></a>1. 接下来的 Sprint 交付的增量中要包含什么内容?</h4><p>开发团队预测在这次<code>Sprint</code>中要开发的功能。产品负责人讲解 <code>Sprint</code>的目标以及达成该目 标所需完成的产品待办列表项。整个<code>Scrum</code>团队协同工作来理解<code>Sprint</code>的工作。</p>
+<p><code>Sprint 会议</code>的输入是<code>产品待办列表</code>、<code>最新的产品增量</code>、<code>开发团队</code>在这个<code>Sprint</code>中能力的预测以及开发团队的以往表现。开发团队自己决定选择<code>产品待办列表项</code>的数量。只有开发团队可以评估接下来的<code>Sprint</code>可以完成什么工作。</p>
+<p>在开发团队预测完这个<code>Sprint</code>中可交付的产品待办列表项之后，<code>Scrum</code>团队草拟一个<code>Sprint</code> 目标。<code>Sprint</code>目标是在这个<code>Sprint</code>通过实现产品待办列表要达到的目的，同时它也为开发团队提供指引，使得开发团队明确开发增量的目的。</p>
+<h4 id="2-要如何完成交付增量所需的工作"><a href="#2-要如何完成交付增量所需的工作" class="headerlink" title="2. 要如何完成交付增量所需的工作?"></a>2. 要如何完成交付增量所需的工作?</h4><p>在设定了<code>Sprint</code>目标并选出这个<code>Sprint</code>要完成的<code>产品待办列表项</code>之后，开发团队将决定如何在<code>Sprint</code>中把这些功能构建成“完成”的产品增量。这个<code>Sprint</code>中所选出的<code>产品待办列表项</code>加上交付它们的计划称之为<code>Sprint 待办列表</code>。</p>
+<p>开发团队通常从设计整个系统开始，到如何将产品待办列表转换成可工作的产品增量所需 要的工作。工作有不同的大小，或者不同的预估工作量。然而，在<code>Sprint 计划会议</code>中，开 发团队已经挑选出足够量的工作，以此来预估他们在即将到来的<code>Sprint</code>中能够完成。在<code>Sprint</code>计划会议的最后，开发团队规划出在<code>Sprint</code>最初几天内所要做的工作，通常以一天 或更少为一个单位。开发团队自组织地领取<code>Sprint 待办产品列表</code>中的工作，领取工作在<code>Sprint 计划会议</code>和<code>Sprint</code>期间按需进行。</p>
+<p>产品负责人能够帮助解释清楚所选定的产品待办列表项，并作出权衡。如果开发团队认为工作过多或过少，他们可以与产品负责人重新协商所选的<code>产品待办列表项</code>。开发团队也可以邀请其他人员参加会议，以获得技术或领域知识方面的建议。</p>
+<p>在<code>Sprint 计划会议</code>结束时，开发团队应该能够向产品负责人和 <code>Scrum Master</code>解释他们将如 何以自组织团队的形式完成<code>Sprint</code>目标并开发出预期的产品增量。</p>
+<h3 id="每日Scrum站会"><a href="#每日Scrum站会" class="headerlink" title="每日Scrum站会"></a>每日Scrum站会</h3><p>每日<code>Scrum 站会</code>是一个以 15 分钟为限的事件，它让开发团队同步开发活动，并为接下了</p>
+<p>的 24 小时制定计划。这需要检视上次每日站会以来的工作和预测下次每日站会之前所能够完成的工作。</p>
+<p>每日<code>Scrum 站会</code>在同一时间同一地点举行，以便降低复杂性。在会议上，每一个开发团队 成员都需要说明:</p>
+<ul>
+<li>昨天，我为帮助开发团队达成<code>Sprint</code>目标做了什么?</li>
+<li>今天，我为帮助开发团队达成<code>Sprint</code>目标准备做什么?</li>
+<li>是否有任何障碍在阻碍我或开发团队达成<code>Sprint</code>目标?</li>
+</ul>
+<p>每日<code>Scrum 站会</code>增进交流沟通、减少其他会议、发现开发过程中需要移除的障碍、突显并促进快速地做决策、提高开发团队的认知程度。这是一个进行检视与适应的关键会议。</p>
+<h3 id="Sprint-回顾会议"><a href="#Sprint-回顾会议" class="headerlink" title="Sprint 回顾会议"></a>Sprint 回顾会议</h3><p>Sprint 回顾会议是<code>Scrum</code>团队检视自身并创建下一个<code>Sprint</code>改进计划的机会。</p>
+<p>Sprint 回顾会议发生在 Sprint 评审会议结束之后，下个<code>Sprint 计划会议</code>之前。对于长度为 一个月的<code>Sprint</code>来说，会议的限时为 3 小时。对于较短的<code>Sprint</code>来说，会议时间通常会缩短。<code>Scrum Master</code>要确保会议举行，并且每个参会者都明白会议的目的。<code>Scrum Master</code>教导大家遵守时间盒的规则。<code>Scrum Master</code>作为<code>Scrum</code>过程的责任者，作为团队的一员参加该会议。</p>
+<p><code>Sprint</code>回顾会议的目的在于:</p>
+<ul>
+<li>检视前一个<code>Sprint</code>中关于人、关系、过程和工具的情况如何</li>
+<li>找出并加以排序做得好的和潜在需要改进的主要方面</li>
+<li>制定改进<code>Scrum</code>团队工作方式的计划</li>
+</ul>
+<p><code>Scrum Master</code>鼓励<code>Scrum</code>团队在<code>Scrum</code>的过程框架内改进开发过程和实践，使得他们能在 下个<code>Sprint</code>中更高效更愉快。在每个<code>Sprint</code>回顾会议中，<code>Scrum</code>团队通过适当地调整“完成”的定义的方式来计划提高产品质量。</p>
+<p>在<code>Sprint</code>回顾会议结束时，<code>Scrum</code>团队应该明确接下来的<code>Sprint</code>中需要实施的改进。在下一个<code>Sprint</code>中实施这些改进是基于<code>Scrum</code>团队对自身的检视而做出的适当调整。虽然改进 可以在任何时间执行，<code>Sprint</code>回顾会议提供了一个专注于检视和适应的正式机会。</p>
+<h2 id="SCRUM的五个价值观"><a href="#SCRUM的五个价值观" class="headerlink" title="SCRUM的五个价值观"></a>SCRUM的五个价值观</h2><ul>
+<li>承诺 – 愿意对目标做出承诺</li>
+<li>专注– 把你的心思和能力都用到你承诺的工作上去</li>
+<li>开放– <code>Scrum</code>把项目中的一切开放给每个人看</li>
+<li>尊重– 每个人都有他独特的背景和经验</li>
+<li>勇气– 有勇气做出承诺，履行承诺，接受别人的尊重</li>
+</ul>
+<h2 id="用户故事"><a href="#用户故事" class="headerlink" title="用户故事"></a>用户故事</h2><p>用户故事是从用户的角度来描述用户渴望得到的功能。一个好的用户故事包括三个要素：</p>
+<ol>
+<li>角色：谁要使用这个功能。</li>
+<li>活动：需要完成什么样的功能。</li>
+<li>商业价值：为什么需要这个功能，这个功能带来什么样的价值。</li>
+</ol>
+<p>举例：<br>作为一个“网站管理员”，我想要“统计每天有多少人访问了我的网站”，以便于“我的赞助商了解我的网站会给他们带来什么收益。”</p>
+<p>需要注意的是用户故事不能够使用技术语言来描述，要使用用户可以理解的业务语言来描述。</p>
+<h2 id="敏捷估算"><a href="#敏捷估算" class="headerlink" title="敏捷估算"></a>敏捷估算</h2><p>无论是团队研发一款产品或者开发某一个项目，我们都需要回答“我们大概什么时间能够完成？”， 或者到某一个时间点，我们能够做到什么程度， 因此和传统的开发模式一样，我们在工作开始之前需要对我们需要做的事情进行工作量的估算。</p>
+<p>相对与传统的工作量估算方式，敏捷估算有如下几个特点：</p>
+<h3 id="1-团队集体估算"><a href="#1-团队集体估算" class="headerlink" title="1. 团队集体估算"></a>1. 团队集体估算</h3><p>在<code>Scrum</code>的开发过程中，团队共担责任，集体承诺每个<code>Sprint</code>的工作，因此对于工作量的估算敏捷团队采用集体估算的方式。</p>
+<h3 id="2-估算大小，而不是估算时间周期，使用相对估算，而不是绝对估算"><a href="#2-估算大小，而不是估算时间周期，使用相对估算，而不是绝对估算" class="headerlink" title="2. 估算大小，而不是估算时间周期，使用相对估算，而不是绝对估算"></a>2. 估算大小，而不是估算时间周期，使用相对估算，而不是绝对估算</h3><p>一瓶矿泉水，让一个3岁的小妹妹把它喝完所花的时间和一个成年人把它喝完所花的时间肯定不一样，因此同一项工作，不同能力的人完成它花费的时间显然是不一样的。如果我们要估算从家到公司的绝对距离时多少公里，您可能不一定知道，但是如果您时做地铁上班，从家里到公司有多少站，你一定很容易知道，当我们知道有多少站之后，我们就可以大概清楚路上需要花多长时间了。敏捷估算时，我们不会估算绝对时间和周期，我们估算大小，和相对值，也就是倍数。敏捷估算时，我们使用故事点作为计量单位，它是一个倍数，我们会先找一个我们认为最小的一个功能的大小作为参考基准（<code>我司现行的1个故事点的定义是 一个熟练工一个小时的工作量</code>）定义为1个故事点，把其它的故事和它做比较，如果是2倍大小，就是2个故事点，如果是5倍大小，就是5个故事点。</p>
+<h3 id="3-我司对于1个故事点的定义"><a href="#3-我司对于1个故事点的定义" class="headerlink" title="3. 我司对于1个故事点的定义"></a>3. 我司对于1个故事点的定义</h3><p>笼统的讲：一个熟练工一个小时的工作量</p>
+<p>熟练工得定义：没有技术和业务的障碍</p>
+<p>例如有这么一个需求： 用react实现一个前端的展示页面<br>在评估点数的时候就要默认这个人熟悉react</p>
+<p>再例如有这么一个需求：H5落地页接入微信支付<br>在评估点数的时候就要默认这个人熟悉我们的支付流程</p>
+<h2 id="增长团队场景再现"><a href="#增长团队场景再现" class="headerlink" title="增长团队场景再现"></a>增长团队场景再现</h2><h3 id="三个角色"><a href="#三个角色" class="headerlink" title="三个角色"></a>三个角色</h3><p>产品负责人 - 清华<br>开发团队 - 黄攀、家园、肖恒、亮宇<br>Scrum Master - 聪哥</p>
+<h3 id="事件流程"><a href="#事件流程" class="headerlink" title="事件流程"></a>事件流程</h3><h4 id="Sprint-1"><a href="#Sprint-1" class="headerlink" title="Sprint"></a>Sprint</h4><p>增长团队是一周一个<code>Sprint</code></p>
+<h4 id="Sprint-计划会议-1"><a href="#Sprint-计划会议-1" class="headerlink" title="Sprint 计划会议"></a>Sprint 计划会议</h4><p>在每周5下午2点举行<br>增长团队全体人员参会<br>产品负责人会根据以往的经验从<code>产品待办事项列表</code>中摘取下个<code>Sprint</code>要完成的<code>Story</code>，并排好优先级<br>对于每个<code>Story</code>，产品负责人会按照用户故事的三个要素来描述<code>Story</code>，开发团队认同后开始敏捷估算，俗称估点<br>开发团队每个人会按照 1个熟练工1个小时的产出 为参照估出点数，根据各自点数协商一个大家都能接受的点数作为最终点数<br>会议期间聪哥会指导并保证会议有序进行</p>
+<h4 id="每日Scrum站会-1"><a href="#每日Scrum站会-1" class="headerlink" title="每日Scrum站会"></a>每日Scrum站会</h4><p>下周一到周五每天早上9点会在毛里求斯进行站会，要求开发团队全员参与并且要站着，围城一圈<br>按照顺时针成员依次发言，内容仅为：</p>
+<ol>
+<li>昨天干了什么？</li>
+<li>今天要干什么？</li>
+<li>有什么风险需要谁的帮助？</li>
+</ol>
+<h4 id="Sprint-评审会议"><a href="#Sprint-评审会议" class="headerlink" title="Sprint 评审会议"></a>Sprint 评审会议</h4><p>每周五下午2点，在<code>Sprint</code>计划会议之前进行<br>清空这个<code>Sprint</code> 的<code>Story</code>并归档<br>看看有没有<code>Story</code>没有完成，为什么，形成经验并在下次注意<br>反思有什么做得不好的地方，形成经验</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/scrum/" rel="tag"># scrum</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/23/sidekiq/" rel="next" title="Sidekiq">
+                <i class="fa fa-chevron-left"></i> Sidekiq
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/26/management-scrum-first-try/" rel="prev" title="初尝 Scrum 标准流程">
+                初尝 Scrum 标准流程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://user-images.githubusercontent.com/10556018/53352661-27443000-395e-11e9-8d7b-86c57c4968aa.png"
+                alt="Haile Huang" />
+            
+              <p class="site-author-name" itemprop="name">Haile Huang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/HaileHuang" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/Tim_Rosses" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SCRUM团队的三个角色"><span class="nav-number">2.</span> <span class="nav-text">SCRUM团队的三个角色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#产品负责人"><span class="nav-number">2.1.</span> <span class="nav-text">产品负责人</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发团队"><span class="nav-number">2.2.</span> <span class="nav-text">开发团队</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#开发团队的规模"><span class="nav-number">2.2.1.</span> <span class="nav-text">开发团队的规模</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scrum-Master"><span class="nav-number">2.3.</span> <span class="nav-text">Scrum Master</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scrum-Master-服务于产品负责人"><span class="nav-number">2.3.1.</span> <span class="nav-text">Scrum Master 服务于产品负责人</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scrum-Master-服务于开发团队"><span class="nav-number">2.3.2.</span> <span class="nav-text">Scrum Master 服务于开发团队</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SCRUM的三个工件"><span class="nav-number">3.</span> <span class="nav-text">SCRUM的三个工件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PRODUCT-BACKLOG-–-产品待办事项列表"><span class="nav-number">3.1.</span> <span class="nav-text">PRODUCT BACKLOG – 产品待办事项列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SPRINT-BACKLOG"><span class="nav-number">3.2.</span> <span class="nav-text">SPRINT BACKLOG</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#产品增量（PRODUCT-INCREMENT）"><span class="nav-number">3.3.</span> <span class="nav-text">产品增量（PRODUCT INCREMENT）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SCRUM的四个事件"><span class="nav-number">4.</span> <span class="nav-text">SCRUM的四个事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sprint"><span class="nav-number">4.1.</span> <span class="nav-text">Sprint</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sprint-计划会议"><span class="nav-number">4.2.</span> <span class="nav-text">Sprint 计划会议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-接下来的-Sprint-交付的增量中要包含什么内容"><span class="nav-number">4.2.1.</span> <span class="nav-text">1. 接下来的 Sprint 交付的增量中要包含什么内容?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-要如何完成交付增量所需的工作"><span class="nav-number">4.2.2.</span> <span class="nav-text">2. 要如何完成交付增量所需的工作?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#每日Scrum站会"><span class="nav-number">4.3.</span> <span class="nav-text">每日Scrum站会</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sprint-回顾会议"><span class="nav-number">4.4.</span> <span class="nav-text">Sprint 回顾会议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SCRUM的五个价值观"><span class="nav-number">5.</span> <span class="nav-text">SCRUM的五个价值观</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户故事"><span class="nav-number">6.</span> <span class="nav-text">用户故事</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#敏捷估算"><span class="nav-number">7.</span> <span class="nav-text">敏捷估算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-团队集体估算"><span class="nav-number">7.1.</span> <span class="nav-text">1. 团队集体估算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-估算大小，而不是估算时间周期，使用相对估算，而不是绝对估算"><span class="nav-number">7.2.</span> <span class="nav-text">2. 估算大小，而不是估算时间周期，使用相对估算，而不是绝对估算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-我司对于1个故事点的定义"><span class="nav-number">7.3.</span> <span class="nav-text">3. 我司对于1个故事点的定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增长团队场景再现"><span class="nav-number">8.</span> <span class="nav-text">增长团队场景再现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三个角色"><span class="nav-number">8.1.</span> <span class="nav-text">三个角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件流程"><span class="nav-number">8.2.</span> <span class="nav-text">事件流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sprint-1"><span class="nav-number">8.2.1.</span> <span class="nav-text">Sprint</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sprint-计划会议-1"><span class="nav-number">8.2.2.</span> <span class="nav-text">Sprint 计划会议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#每日Scrum站会-1"><span class="nav-number">8.2.3.</span> <span class="nav-text">每日Scrum站会</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sprint-评审会议"><span class="nav-number">8.2.4.</span> <span class="nav-text">Sprint 评审会议</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Haile Huang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://hailehuang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/10/30/management-scrum/';
+          this.page.identifier = '2018/10/30/management-scrum/';
+          this.page.title = 'SCRUM敏捷开发';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://hailehuang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
