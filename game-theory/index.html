@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/10556018/42560280-df45afde-8528-11e8-89b8-90ab96f65c50.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/10556018/42560280-df45afde-8528-11e8-89b8-90ab96f65c50.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/10556018/42560280-df45afde-8528-11e8-89b8-90ab96f65c50.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/10556018/42560280-df45afde-8528-11e8-89b8-90ab96f65c50.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Nim,SG," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言这是 2012年12月04日 00:13:42 发表的博客，那时的我初生牛犊不怕虎，天天都在做final梦，在数据结构、动态规划还没整明白的情况下贸然开始搞博弈，实乃too simple。博弈现在基本上是忘到爪哇岛去了，投入的精力不知道还剩几斤几两。不过想想当年，确实挺热血的嘛！ 小知识点HDOJ2176 取(m堆)石子游戏 [输出第一步走法] 若给出的是必胜状态：a1^a2^…….^an=k">
+<meta name="keywords" content="Nim,SG">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博弈进行时">
+<meta property="og:url" content="http://www.hailehuang.com/game-theory/index.html">
+<meta property="og:site_name" content="Haile&#39;s Blog">
+<meta property="og:description" content="前言这是 2012年12月04日 00:13:42 发表的博客，那时的我初生牛犊不怕虎，天天都在做final梦，在数据结构、动态规划还没整明白的情况下贸然开始搞博弈，实乃too simple。博弈现在基本上是忘到爪哇岛去了，投入的精力不知道还剩几斤几两。不过想想当年，确实挺热血的嘛！ 小知识点HDOJ2176 取(m堆)石子游戏 [输出第一步走法] 若给出的是必胜状态：a1^a2^…….^an=k">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-12T16:56:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="博弈进行时">
+<meta name="twitter:description" content="前言这是 2012年12月04日 00:13:42 发表的博客，那时的我初生牛犊不怕虎，天天都在做final梦，在数据结构、动态规划还没整明白的情况下贸然开始搞博弈，实乃too simple。博弈现在基本上是忘到爪哇岛去了，投入的精力不知道还剩几斤几两。不过想想当年，确实挺热血的嘛！ 小知识点HDOJ2176 取(m堆)石子游戏 [输出第一步走法] 若给出的是必胜状态：a1^a2^…….^an=k">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.hailehuang.com/game-theory/"/>
+
+
+
+
+
+  <title>博弈进行时 | Haile's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5cfdffefc40643590b34d00829a1efa2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Haile's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.hailehuang.com/game-theory/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Haile Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/10556018/53352661-27443000-395e-11e9-8d7b-86c57c4968aa.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Haile's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">博弈进行时</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2012-12-04T00:13:42+08:00">
+                2012-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Game-theory/" itemprop="url" rel="index">
+                    <span itemprop="name">Game theory</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/game-theory/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="game-theory/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这是 2012年12月04日 00:13:42 发表的博客，那时的我初生牛犊不怕虎，天天都在做final梦，在数据结构、动态规划还没整明白的情况下贸然开始搞博弈，实乃too simple。<br>博弈现在基本上是忘到爪哇岛去了，投入的精力不知道还剩几斤几两。<br>不过想想当年，确实挺热血的嘛！</p>
+<h2 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h2><h3 id="HDOJ2176-取-m堆-石子游戏-输出第一步走法"><a href="#HDOJ2176-取-m堆-石子游戏-输出第一步走法" class="headerlink" title="HDOJ2176 取(m堆)石子游戏 [输出第一步走法]"></a>HDOJ2176 取(m堆)石子游戏 [输出第一步走法]</h3><ul>
+<li>若给出的是必胜状态：a1^a2^…….^an=k,(其中k不为零)，那么我们的目的是要把必胜状态转化为必败状态从 而使得先手胜利。</li>
+<li>若a1^a2^…^an!=0，一定存在某个合法的移动，将ai改变成ai’后满足a1^a2^…^ai’^…^an=0。</li>
+<li>若a1^a2^…^an=k，则一定存在某个ai，它的二进制 表示在k的最高位上是1（否则k的最高位那个1是怎么得到的）。这时ai^k&lt;ai一定成立。</li>
+</ul>
+<p>则我们可以将ai改变成ai’=ai^k，此时a1^a2^…^ai’^…^an=a1^a2^…^an^k=0</p>
+<h3 id="HDOJ1907-amp-amp-POJ3480-amp-ZOJ3113-John-ANTI-SG"><a href="#HDOJ1907-amp-amp-POJ3480-amp-ZOJ3113-John-ANTI-SG" class="headerlink" title="HDOJ1907&amp;&amp;POJ3480&amp;ZOJ3113 John [ANTI-SG]"></a>HDOJ1907&amp;&amp;POJ3480&amp;ZOJ3113 John [ANTI-SG]</h3><p>必胜策略：</p>
+<ol>
+<li>sg值为0 且 全为孤单堆；</li>
+<li>sg值不为0 且 不全为孤单堆；</li>
+</ol>
+<h2 id="NP暴力打表-找规律"><a href="#NP暴力打表-找规律" class="headerlink" title="NP暴力打表||找规律"></a>NP暴力打表||找规律</h2><h3 id="HDOJ1525-amp-POJ2348-Euclid’s-Game-找规律博弈"><a href="#HDOJ1525-amp-POJ2348-Euclid’s-Game-找规律博弈" class="headerlink" title="HDOJ1525&amp;POJ2348 Euclid’s Game [找规律博弈]"></a>HDOJ1525&amp;POJ2348 Euclid’s Game [找规律博弈]</h3><p>注意第一次出现a/b&gt;1的位置为必胜</p>
+<h3 id="HDOJ1564-Play-a-game-找规律-（重点是打表的方法，N-P定理）"><a href="#HDOJ1564-Play-a-game-找规律-（重点是打表的方法，N-P定理）" class="headerlink" title="HDOJ1564 Play a game [找规律]（重点是打表的方法，N P定理）"></a>HDOJ1564 Play a game [找规律]（重点是打表的方法，N P定理）</h3><p>打表发现奇偶性规律</p>
+<h3 id="HDOJ1404-Digital-Deletions-SG博弈-（暴力打表，NP定理）"><a href="#HDOJ1404-Digital-Deletions-SG博弈-（暴力打表，NP定理）" class="headerlink" title="HDOJ1404 Digital Deletions [SG博弈]（暴力打表，NP定理）"></a>HDOJ1404 Digital Deletions [SG博弈]（暴力打表，NP定理）</h3><p>老实说，这个表不太好打。从P-&gt;N一种是在让某一位增加；另一种是在后面补0</p>
+<h2 id="裸求sg值"><a href="#裸求sg值" class="headerlink" title="裸求sg值"></a>裸求sg值</h2><h3 id="HDOJ3032-Nim-or-not-Nim-找规律-SG打表"><a href="#HDOJ3032-Nim-or-not-Nim-找规律-SG打表" class="headerlink" title="HDOJ3032 Nim or not Nim? [找规律]SG打表"></a>HDOJ3032 Nim or not Nim? [找规律]SG打表</h3><p>重点是sg函数的求法，把一堆变成两堆，有嵌套的感觉。</p>
+<h3 id="HDOJ1729-Stone-Game-SG博弈"><a href="#HDOJ1729-Stone-Game-SG博弈" class="headerlink" title="HDOJ1729 Stone Game [SG博弈]"></a>HDOJ1729 Stone Game [SG博弈]</h3><p>这题我开始打了个表，，什么规律都没找出来，还是得靠分析，，可我不会啊。。。。</p>
+<p>我的理解：<br>可以先模拟一下，初始为（27,2），子递归状态为（4,2）然后返回2，结束。<br>然后我从前往后推，A先拿2个，变为（27,4）状态，然后无论B怎么拿都无法拿完，所以B很保守的只拿一个，变为（27,5）状态，然后A轻松拿完；所以A获胜了。<br>所以我的理解是子递归状态返回值的意义在于 先手能否成功到达必败点，让后手必败。</p>
+<p>那么对于这题对于每一堆，放石子放满就想当于满的时候取s-c个，反向只是让我理解题意更深。</p>
+<p>首先我们知道（S，S）这个局面是必败局面。</p>
+<p>对于每一堆能加的数量有限，而当c的值（大于或者等于）D=sqrt(s) 或者 D=sqri（s）+1的时候就可以一次完成，就是说可以从当前局面到达（S，S）的局面，所以当前局面是必胜局面。</p>
+<p>而这种情况下，你能造成的局面有集合A={0,1,2,…,s-c-1}；因为你可以去s-c，s-c-1，s-c-2，…..，1；那么对应mex(x)函数（即A中未出现的最小的一个数字），那么自然该局面的SG值就是s-c了；</p>
+<p>另外当c的值小于D的时候，是不可能一下子加满的，因为c*c+c绝对是小于s的；那么小于D的局面一定能够是必输的吗？很显然不是的。</p>
+<p>对于（S，D-1）这个局面，一定是必输，因为他能到的局面都是必胜！现在c小于D，那么如果（S，C）这个局面能到（S，D）；就代表这个局面是必胜的。所以现在SG值要在新集合（D，C）中求，而求法与上面的相同求新的D，所以可以用递归函数：当C&gt;D时，返回（S-C）</p>
+<p>差不多就是这样。</p>
+<p>其实D = sqrt(s);这里算是个加速，要不然就要：while(d*d+d &lt; S) d++;这样会很慢的。</p>
+<p>思路：这题明显的sg函数。可惜我纠结了半天没想起思路来。设当前的箱子容量为si，求出一个t满足：t + t * t &lt; si，若是当前箱子里有ci颗石头，</p>
+<ol>
+<li>ci &gt; t 则必胜；</li>
+<li>ci == t 则必败；</li>
+<li>ci &lt; t不可立即断定，将t作为si递归调用函数。</li>
+</ol>
+<p>当满足ci &gt; t时，return si - ci 作为当前状况的sg值。因为：</p>
+<p>当ci在si点时，为有向图的端点，出度为0，也就是必败点，所以sg值为0；</p>
+<p>当ci 位于si - 1时，ci的端点可能的sg值构成的凑集为{0}，所以当前sg值 为1；</p>
+<p>当ci 位于si - 2 时，ci的端点可能的sg值构成的凑集为{0， 1}，所以当前的sg值为2；</p>
+<p>可得，ci地点地位的sg值为si - ci；</p>
+<h3 id="TopCoder-SRM-561-DIV1-500：CirclesGame"><a href="#TopCoder-SRM-561-DIV1-500：CirclesGame" class="headerlink" title="[TopCoder]SRM 561 DIV1  500：CirclesGame"></a>[TopCoder]SRM 561 DIV1  500：CirclesGame</h3><p>题意：给你n&lt;=50个不相交的圆（可能包含）。Alice 和Bob博弈，Alice先手，每次每人都可以选择一个没有红点的圆，在圆内放置一个红点，最后没法放红点的一方失败。</p>
+<p>算法分析：圆与圆没有相交，故可以把每个圆看成一个结点，直接包含看成点与点之间的边，于是得到一个森林。原题变成在这个森林里博弈，每次选取一个结点，可以干掉他和他的所有祖先结点，干掉最后一个点的获胜。<br>首先我们来考虑每颗树的sg函数。我们可以选择这棵树上任意一个结点操作，去掉这个结点以及其祖先结点后剩下的树的sg函数取异或便是当前操作所得状态的sg值，去掉这些sg值，剩下sg值的最小值即为这棵树的sg函数（看不懂的先好好学学博弈论）。求出每颗树的sg函数，最后取异或便是最终的sg函数，结果不等于0先手胜否则后手胜。</p>
+<p>（这题不太好写，子状态神马递归容易出错）</p>
+<h2 id="starcase"><a href="#starcase" class="headerlink" title="starcase"></a>starcase</h2><h3 id="HDOJ3389-Game-Staircase-Nim-变形"><a href="#HDOJ3389-Game-Staircase-Nim-变形" class="headerlink" title="HDOJ3389 Game [Staircase Nim]变形"></a>HDOJ3389 Game [Staircase Nim]变形</h3><p>要注意这类博弈的特点：一定是奇堆移动到偶堆，偶堆移动到奇堆。</p>
+<h4 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h4><p>有N堆石子，每堆石子都有一定的石子数，Alice和Bob轮流玩一个游戏，游戏的规则是，每回合一个人可以选择1-n堆石子中的某一堆进行操作，操作是：假设选择操作的那堆石子的编号为A，现在还要选择一堆石子B，满足B&lt;A &amp;&amp; (A+B)%2==1 &amp;&amp; (A+B)%3==0，然后可以将A中至少一颗石子移到B中去，第一个不能进行合法操作的人输，问谁能赢。</p>
+<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><p>这是一个阶梯博弈的题目，首先我们可以发现，只有1 ，3 ，4 三个数是没有前缀的， 也就是terminal状态，其余的每个状态我们都可以计算出每个编号到这几个terminal的步数（当然有的编号的步数并不唯一，但是奇偶性是唯一的）。接下去我们就会发现，每次从一个奇数步的点，一定是要移到到 一个偶数步的点上去，也就是说每次只能移到奇数步，这个通过编号自身的奇偶性就可以证明了。这样就转化为了阶梯博弈的类型了，我们只需要关注奇数步编号出的石子的数量就可以了，如果奇数步编号处的石子的Nim和为0，则必败，不为0则必胜。接下去我们就简单地证明一下这个策略：如果移动的是奇数步位置的石子，则一定是移动到偶数步的位置，这时候我们只需要按照Nim博弈的必胜策略进行游戏就可以赢；如果移动的是偶数步数编号位置的石子，则移动是移动到奇数步的位置，这时候我们只需要将刚刚移动过来的石子移动到下一个偶数步位置，原来的Nim局面并没有变化，变化的只是偶数步石子的数量。这样我们就证明了原游戏可以转化为Nim游戏。</p>
+<h3 id="POJ1704-Georgia-and-Bob-阶梯博弈-下面一题是这个的加强版，直接把这种最纯粹的看做模型"><a href="#POJ1704-Georgia-and-Bob-阶梯博弈-下面一题是这个的加强版，直接把这种最纯粹的看做模型" class="headerlink" title="POJ1704 Georgia and Bob [阶梯博弈] (下面一题是这个的加强版，直接把这种最纯粹的看做模型)"></a>POJ1704 Georgia and Bob [阶梯博弈] (下面一题是这个的加强版，直接把这种最纯粹的看做模型)</h3><p>我们把棋子按位置升序排列后，从后往前把他们两两绑定成一对。如果总个数是奇数，就把最前面一个和边界（位置为0）绑定。<br>在同一对棋子中，如果对手移动前一个，你总能对后一个移动相同的步数，所以一对棋子的前一个和前一对棋子的后一个之间有多少个空位置对最终的结果是没有影响的。<br>于是我们只需要考虑同一对的两个棋子之间有多少空位。<br>这样一来就成了N堆取石子游戏了.</p>
+<h3 id="HDOJ4315-Climbing-the-Hill-阶梯博弈-（有待提高）"><a href="#HDOJ4315-Climbing-the-Hill-阶梯博弈-（有待提高）" class="headerlink" title="HDOJ4315 Climbing the Hill [阶梯博弈]  （有待提高）"></a>HDOJ4315 Climbing the Hill [阶梯博弈]  （有待提高）</h3><p>这题压力山大，看了好久：</p>
+<p>此题的简化版本是不考虑King的存在，双方一直走到不能走的一方为负。此时的解法是根据人数的奇偶性：把人从上顶向下的位置记为a1,a2,…an, 如果为偶数个人，则把a(2i-1)和a(2i)之间的距离当做一个Nim堆，变成一共n/2堆的Nim游戏；如果为奇数个人，则把山顶到a1的距离当做一个Nim堆，a(i<em>2)到a(i</em>2+1)的距离当做Nim堆，一共(n+1)/2堆。</p>
+<p>考虑King的情况和上述版本几乎一致，只要把King当作普通人一样处理即可。除了两种特殊情况：1. 当King是第一个人时，Alice直接胜 2. 当King是第二个人且一共有奇数个人时，第一堆的大小需要减1。</p>
+<h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>如上图所示：有 n 个球分别在 n 个不同的位置，Alice 和 Bob 依次选择一个球向上移动，上面有球不能越过，<br>谁最后把红球移出谁就赢！</p>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>1、n 为偶数时：问题简化一下，假设全都是黄球，谁把最后一个球移出谁就赢<br>（a1,a2） (a3,a4) …… ( a(2<em>n-1) , a(2</em>n) ) ……（a(n-1),an）其中第 i 个球与第 i+1 个球是相邻的，i 为基数，谁面对这个状态谁就必输。<br>理由很简单，先手移动第 i 个球，后手移动第 i+1 个球，使之仍然保持必赢状态。<br>回到原问题谁先移出红球谁就赢，假设红球不是第一个球（因为第一个球Alice直接就赢了）<br>很显然如果红球在偶数位置后手必赢，如果在基数 i 位置，则只需将 第 i-1 个球移到第一个位置就ok了。<br>所以与红球位置无关。至于产生这个状态（a1,a2） (a3,a4) …… ( a(2<em>n-1) , a(2</em>n) ) ……（a(n-1),an），那么就是简单的 Nim问题了<br>2、n 为基数时：假设红球是第1、2个球。<br>（a1） (a2,a3)（a4,a5）…… (a(2<em>n),a(2</em>n+1)) …… (a(n-1),an) 谁面对这个状态必赢！理由是先手直接把 a1 取走然后就变成上面的情况了，<br>如果红球在第 2 个位置那么就是必输状态。</p>
+<p>与staircase的联系：对于这个题目，从后向前两两划分成一组，组内相当于奇数阶梯上的石子，组间相当于偶数阶梯上的石子，移动组内的前面石子一定能够通过移动当前组的后面石子相同步数达到平衡态，移动组内后面的石子一定能够通过移动其他组后面石子达到平衡态，具体因为King的原因需要处理细节，上面已经说清楚了，不再赘述。</p>
+<h2 id="翻硬币游戏"><a href="#翻硬币游戏" class="headerlink" title="翻硬币游戏"></a>翻硬币游戏</h2><h3 id="HDOJ3537-Daizhenyang’s-Coin-翻硬币游戏-SG打表-（待解决）"><a href="#HDOJ3537-Daizhenyang’s-Coin-翻硬币游戏-SG打表-（待解决）" class="headerlink" title="HDOJ3537 Daizhenyang’s Coin[翻硬币游戏]SG打表  （待解决）"></a>HDOJ3537 Daizhenyang’s Coin[翻硬币游戏]SG打表  （待解决）</h3><p>这题表我是打出来了，规律没找出来（注意还要对编号排序判重）</p>
+<h3 id="HDOJ3951-Coin-Game-找规律"><a href="#HDOJ3951-Coin-Game-找规律" class="headerlink" title="HDOJ3951 Coin Game [找规律]"></a>HDOJ3951 Coin Game [找规律]</h3><h4 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h4><p>给你n个硬币排成一圈，编号1-n,只能翻转连续的1~k个的硬币。翻最后一枚硬币者赢。</p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>博弈</p>
+<ol>
+<li>若k=1,则一次只能去翻一枚，奇数先手赢，偶数后手赢。</li>
+<li>若k&gt;1:<ul>
+<li>先手一次翻完，先手赢；</li>
+<li>先手不能翻完，第一次必定断环。只要后手一次翻完，或将其分为相等数量的两段，</li>
+</ul>
+</li>
+</ol>
+<p>之后先手怎么操作后手就怎么操作，后手必赢。</p>
+<h2 id="树-amp-amp-删边"><a href="#树-amp-amp-删边" class="headerlink" title="树&amp;&amp;删边"></a>树&amp;&amp;删边</h2><h3 id="HDOJ3094-A-tree-game"><a href="#HDOJ3094-A-tree-game" class="headerlink" title="HDOJ3094 A tree game"></a>HDOJ3094 A tree game</h3><p>[有向无环树形图SG博弈]最基础的删边</p>
+<h3 id="HDOJ3197-Game"><a href="#HDOJ3197-Game" class="headerlink" title="HDOJ3197 Game"></a>HDOJ3197 Game</h3><p>[树形SG博弈]砍树<br>树的删边游戏，把多棵树的根异或起来就行了</p>
+<h3 id="HDOJ3590-PP-and-QQ"><a href="#HDOJ3590-PP-and-QQ" class="headerlink" title="HDOJ3590 PP and QQ"></a>HDOJ3590 PP and QQ</h3><p>[树的删边游戏+ANTI-SG]<br>先手必胜当且仅当</p>
+<ol>
+<li>游戏的SG函数不为0且游戏中某个单一游戏的SG函数大于1</li>
+<li>游戏的SG函数为0且游戏中没有单一游戏的SG函数大于1</li>
+</ol>
+<h3 id="POJ3710-Christmas-Game"><a href="#POJ3710-Christmas-Game" class="headerlink" title="POJ3710 Christmas Game"></a>POJ3710 Christmas Game</h3><p>[无向图删边]<br>Tarjan算法找出环，处理环之后，便是经典的删边游戏。<br>拥有奇数条边的环可简化为一条边，偶数条边的环可简化为一个节点。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Nim/" rel="tag"># Nim</a>
+          
+            <a href="/tags/SG/" rel="tag"># SG</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/suffix-tree/" rel="prev" title="Suffix Tree 后缀数组">
+                Suffix Tree 后缀数组 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://user-images.githubusercontent.com/10556018/53352661-27443000-395e-11e9-8d7b-86c57c4968aa.png"
+                alt="Haile Huang" />
+            
+              <p class="site-author-name" itemprop="name">Haile Huang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/HaileHuang" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/Tim_Rosses" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小知识点"><span class="nav-number">2.</span> <span class="nav-text">小知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HDOJ2176-取-m堆-石子游戏-输出第一步走法"><span class="nav-number">2.1.</span> <span class="nav-text">HDOJ2176 取(m堆)石子游戏 [输出第一步走法]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HDOJ1907-amp-amp-POJ3480-amp-ZOJ3113-John-ANTI-SG"><span class="nav-number">2.2.</span> <span class="nav-text">HDOJ1907&amp;&amp;POJ3480&amp;ZOJ3113 John [ANTI-SG]</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NP暴力打表-找规律"><span class="nav-number">3.</span> <span class="nav-text">NP暴力打表||找规律</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HDOJ1525-amp-POJ2348-Euclid’s-Game-找规律博弈"><span class="nav-number">3.1.</span> <span class="nav-text">HDOJ1525&amp;POJ2348 Euclid’s Game [找规律博弈]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HDOJ1564-Play-a-game-找规律-（重点是打表的方法，N-P定理）"><span class="nav-number">3.2.</span> <span class="nav-text">HDOJ1564 Play a game [找规律]（重点是打表的方法，N P定理）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HDOJ1404-Digital-Deletions-SG博弈-（暴力打表，NP定理）"><span class="nav-number">3.3.</span> <span class="nav-text">HDOJ1404 Digital Deletions [SG博弈]（暴力打表，NP定理）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#裸求sg值"><span class="nav-number">4.</span> <span class="nav-text">裸求sg值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HDOJ3032-Nim-or-not-Nim-找规律-SG打表"><span class="nav-number">4.1.</span> <span class="nav-text">HDOJ3032 Nim or not Nim? [找规律]SG打表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HDOJ1729-Stone-Game-SG博弈"><span class="nav-number">4.2.</span> <span class="nav-text">HDOJ1729 Stone Game [SG博弈]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TopCoder-SRM-561-DIV1-500：CirclesGame"><span class="nav-number">4.3.</span> <span class="nav-text">[TopCoder]SRM 561 DIV1  500：CirclesGame</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#starcase"><span class="nav-number">5.</span> <span class="nav-text">starcase</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HDOJ3389-Game-Staircase-Nim-变形"><span class="nav-number">5.1.</span> <span class="nav-text">HDOJ3389 Game [Staircase Nim]变形</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意："><span class="nav-number">5.1.1.</span> <span class="nav-text">题意：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路："><span class="nav-number">5.1.2.</span> <span class="nav-text">思路：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POJ1704-Georgia-and-Bob-阶梯博弈-下面一题是这个的加强版，直接把这种最纯粹的看做模型"><span class="nav-number">5.2.</span> <span class="nav-text">POJ1704 Georgia and Bob [阶梯博弈] (下面一题是这个的加强版，直接把这种最纯粹的看做模型)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HDOJ4315-Climbing-the-Hill-阶梯博弈-（有待提高）"><span class="nav-number">5.3.</span> <span class="nav-text">HDOJ4315 Climbing the Hill [阶梯博弈]  （有待提高）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意"><span class="nav-number">5.3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分析"><span class="nav-number">5.3.2.</span> <span class="nav-text">分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#翻硬币游戏"><span class="nav-number">6.</span> <span class="nav-text">翻硬币游戏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HDOJ3537-Daizhenyang’s-Coin-翻硬币游戏-SG打表-（待解决）"><span class="nav-number">6.1.</span> <span class="nav-text">HDOJ3537 Daizhenyang’s Coin[翻硬币游戏]SG打表  （待解决）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HDOJ3951-Coin-Game-找规律"><span class="nav-number">6.2.</span> <span class="nav-text">HDOJ3951 Coin Game [找规律]</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意-1"><span class="nav-number">6.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路"><span class="nav-number">6.2.2.</span> <span class="nav-text">思路</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树-amp-amp-删边"><span class="nav-number">7.</span> <span class="nav-text">树&amp;&amp;删边</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HDOJ3094-A-tree-game"><span class="nav-number">7.1.</span> <span class="nav-text">HDOJ3094 A tree game</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HDOJ3197-Game"><span class="nav-number">7.2.</span> <span class="nav-text">HDOJ3197 Game</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HDOJ3590-PP-and-QQ"><span class="nav-number">7.3.</span> <span class="nav-text">HDOJ3590 PP and QQ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POJ3710-Christmas-Game"><span class="nav-number">7.4.</span> <span class="nav-text">POJ3710 Christmas Game</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Haile Huang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://hailehuang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.hailehuang.com/game-theory/';
+          this.page.identifier = 'game-theory/';
+          this.page.title = '博弈进行时';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://hailehuang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
