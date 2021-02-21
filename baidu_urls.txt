@@ -1,12 +1,13 @@
-http://www.hailehuang.com/management-execute-plan/
 http://www.hailehuang.com/history-wanganshi/
-http://www.hailehuang.com/design-private-npm/
+http://www.hailehuang.com/management-execute-plan/
 http://www.hailehuang.com/management-tobe-a-mentor/
+http://www.hailehuang.com/management-scrum-first-try/
+http://www.hailehuang.com/design-schedule-push/
+http://www.hailehuang.com/management-scrum/
+http://www.hailehuang.com/design-private-npm/
 http://www.hailehuang.com/design-value-objects-in-rails/
 http://www.hailehuang.com/database-transaction/
 http://www.hailehuang.com/economic-explanation2/
-http://www.hailehuang.com/management-scrum-first-try/
-http://www.hailehuang.com/management-scrum/
 http://www.hailehuang.com/sidekiq/
 http://www.hailehuang.com/economic-explanation/
 http://www.hailehuang.com/database-MongoDB/

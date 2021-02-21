@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://www.hailehuang.com/management-execute-plan/</loc>
-    <lastmod>2019-07-25</lastmod>
+    <loc>http://www.hailehuang.com/design-schedule-push/</loc>
+    <lastmod>2021-02-21</lastmod>
   </url>  <url>
     <loc>http://www.hailehuang.com/history-wanganshi/</loc>
-    <lastmod>2019-06-05</lastmod>
-  </url>  <url>
-    <loc>http://www.hailehuang.com/design-private-npm/</loc>
-    <lastmod>2019-04-14</lastmod>
+    <lastmod>2021-02-21</lastmod>
   </url>  <url>
     <loc>http://www.hailehuang.com/management-tobe-a-mentor/</loc>
-    <lastmod>2019-04-14</lastmod>
+    <lastmod>2021-02-21</lastmod>
   </url>  <url>
-    <loc>http://www.hailehuang.com/design-value-objects-in-rails/</loc>
+    <loc>http://www.hailehuang.com/management-scrum/</loc>
+    <lastmod>2021-02-21</lastmod>
+  </url>  <url>
+    <loc>http://www.hailehuang.com/management-scrum-first-try/</loc>
+    <lastmod>2021-02-21</lastmod>
+  </url>  <url>
+    <loc>http://www.hailehuang.com/management-execute-plan/</loc>
+    <lastmod>2021-02-21</lastmod>
+  </url>  <url>
+    <loc>http://www.hailehuang.com/design-private-npm/</loc>
     <lastmod>2019-04-14</lastmod>
   </url>  <url>
     <loc>http://www.hailehuang.com/design-frontend-dream/</loc>
     <lastmod>2019-04-14</lastmod>
   </url>  <url>
-    <loc>http://www.hailehuang.com/database-transaction/</loc>
+    <loc>http://www.hailehuang.com/design-value-objects-in-rails/</loc>
     <lastmod>2019-04-14</lastmod>
   </url>  <url>
-    <loc>http://www.hailehuang.com/economic-explanation2/</loc>
-    <lastmod>2019-02-26</lastmod>
+    <loc>http://www.hailehuang.com/database-transaction/</loc>
+    <lastmod>2019-04-14</lastmod>
   </url>  <url>
     <loc>http://www.hailehuang.com/economic-explanation/</loc>
     <lastmod>2019-02-26</lastmod>
   </url>  <url>
-    <loc>http://www.hailehuang.com/management-scrum-first-try/</loc>
-    <lastmod>2019-02-25</lastmod>
-  </url>  <url>
-    <loc>http://www.hailehuang.com/management-scrum/</loc>
-    <lastmod>2019-02-25</lastmod>
+    <loc>http://www.hailehuang.com/economic-explanation2/</loc>
+    <lastmod>2019-02-26</lastmod>
   </url>  <url>
     <loc>http://www.hailehuang.com/sidekiq/</loc>
     <lastmod>2019-02-25</lastmod>
@@ -133,10 +136,10 @@
     <loc>http://www.hailehuang.com/economics-MLF/</loc>
     <lastmod>2018-07-27</lastmod>
   </url>  <url>
-    <loc>http://www.hailehuang.com/js-prototype/</loc>
+    <loc>http://www.hailehuang.com/JS-closure/</loc>
     <lastmod>2018-07-23</lastmod>
   </url>  <url>
-    <loc>http://www.hailehuang.com/JS-closure/</loc>
+    <loc>http://www.hailehuang.com/js-prototype/</loc>
     <lastmod>2018-07-23</lastmod>
   </url>  <url>
     <loc>http://www.hailehuang.com/JS-this/</loc>
@@ -151,10 +154,10 @@
     <loc>http://www.hailehuang.com/game-theory/</loc>
     <lastmod>2018-07-12</lastmod>
   </url>  <url>
-    <loc>http://www.hailehuang.com/Huffman-Tree/</loc>
+    <loc>http://www.hailehuang.com/B-Trees/</loc>
     <lastmod>2018-07-11</lastmod>
   </url>  <url>
-    <loc>http://www.hailehuang.com/B-Trees/</loc>
+    <loc>http://www.hailehuang.com/Huffman-Tree/</loc>
     <lastmod>2018-07-11</lastmod>
   </url>
 </urlset>
